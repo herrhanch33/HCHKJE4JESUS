@@ -189,7 +189,7 @@ function App() {
       <section className="route">
         <h2>오시는 길</h2>
         <Map
-          center={{ lat: 37.5055, lng: 126.9140 }}
+          center={{ lat: 36.102520927369206, lng: 129.3820512860352 }}
           style={{ width: '100%', height: '400px', marginTop: '20px' }}
           level={3}
         >
