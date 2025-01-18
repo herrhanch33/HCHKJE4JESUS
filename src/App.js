@@ -9,7 +9,7 @@ import Guestbook from './Guestbook';
 
 function App() {
   const images = [];
-  for (let i = 0; i < 21; i++) images.push(`slide-images/${i+1}.jpg`)
+  for (let i = 0; i < 13; i++) images.push(`slide-images/${i+1}.jpg`)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGroomExpend, setIsGroomExpend] = useState(true);
   const [isBrideExpend, setIsBrideExpend] = useState(true);
@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <section className="cover">
-        <img src="image1.jpg" />
+        <img src="image1.jpg" alt="Cover" />
       </section>
 
       <section className="intro">
@@ -308,7 +308,7 @@ function App() {
           Changhee & Jieun
         </p>
         <img src="slide-images/13.jpg" alt="" />
-        {/* <Guestbook /> */}
+         <Guestbook /> 
       </section>
     </div>
   );
