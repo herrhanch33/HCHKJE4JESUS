@@ -193,7 +193,7 @@ function App() {
           style={{ width: '100%', height: '400px', marginTop: '20px' }}
           level={3}
         >
-          <MapMarker position={{ lat: 37.5055, lng: 126.9140 }}></MapMarker>
+          <MapMarker position={{ lat: 36.102520927369206, lng: 129.3820512860352 }}></MapMarker>
         </Map>
         
         <div style={{ backgroundColor: '#eee', padding: '30px 15px 40px'}}>
@@ -224,11 +224,11 @@ function App() {
         <p className="place">장소 | 무</p>
         <p className="address">경북 포항시 한동대학교 <span onClick={() => copyText('경북 포항시 한동대학')}>복사</span></p>
         <Map
-          center={{ lat: 35.3215, lng: 128.4067 }}
+          center={{ lat: 36.10358685346486, lng: 129.3889226319518 }}
           style={{ width: '100%', height: '400px', marginTop: '20px' }}
           level={3}
         >
-          <MapMarker position={{ lat: 35.3215, lng: 128.4067 }}></MapMarker>
+          <MapMarker position={{ lat: 36.10358685346486, lng: 129.3889226319518 }}></MapMarker>
         </Map>
       </section>
 
