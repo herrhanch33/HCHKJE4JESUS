@@ -66,10 +66,10 @@ function App() {
             한창희
           </h3>
           <div className="button-div">
-            <button onClick={() => window.location.href = `tel:010-7795-4500`}>
+            <button onClick={() => window.location.href = `tel:010-2650-2895`}>
               <img src="call_icon.png" alt="" />
             </button>
-            <button onClick={() => window.location.href = `sms:010-7795-4500`}>
+            <button onClick={() => window.location.href = `sms:010-2650-2895`}>
               <img src="messenger.png" alt="" />
             </button>
           </div>
@@ -78,13 +78,24 @@ function App() {
             <span>신랑 혼주</span>
           </h3>
           <p>
+            <span>아버지</span>한상륜
+          </p>
+          <div className="button-div">
+            <button onClick={() => window.location.href = `tel:010-3349-2895`}>
+              <img src="call_icon.png" alt="" />
+            </button>
+            <button onClick={() => window.location.href = `sms:010-3349-2895`}>
+              <img src="messenger.png" alt="" />
+            </button>
+          </div>
+          <p>
             <span>어머니</span>이정선
           </p>
           <div className="button-div">
-            <button onClick={() => window.location.href = `tel:010-5690-2922`}>
+            <button onClick={() => window.location.href = `tel:010-2218-2895`}>
               <img src="call_icon.png" alt="" />
             </button>
-            <button onClick={() => window.location.href = `sms:010-5690-2922`}>
+            <button onClick={() => window.location.href = `sms:010-2218-2895`}>
               <img src="messenger.png" alt="" />
             </button>
           </div>
@@ -98,10 +109,10 @@ function App() {
             권지은
           </h3>
           <div className="button-div">
-            <button onClick={() => window.location.href = `tel:010-7795-4500`}>
+            <button onClick={() => window.location.href = `tel:010-2626-1264`}>
               <img src="call_icon.png" alt="" />
             </button>
-            <button onClick={() => window.location.href = `sms:010-7795-4500`}>
+            <button onClick={() => window.location.href = `sms:010-2626-1264`}>
               <img src="messenger.png" alt="" />
             </button>
           </div>
@@ -113,10 +124,10 @@ function App() {
             <span>아버지</span>권영익
           </p>
           <div className="button-div">
-            <button onClick={() => window.location.href = `tel:010-4119-4500`}>
+            <button onClick={() => window.location.href = `tel:010-5152-3694`}>
               <img src="call_icon.png" alt="" />
             </button>
-            <button onClick={() => window.location.href = `sms:010-4119-4500`}>
+            <button onClick={() => window.location.href = `sms:010-5152-3694`}>
               <img src="messenger.png" alt="" />
             </button>
           </div>
@@ -124,10 +135,10 @@ function App() {
             <span>어머니</span>김영순
           </p>
           <div className="button-div">
-            <button onClick={() => window.location.href = `tel:010-4019-4500`}>
+            <button onClick={() => window.location.href = `tel:010-9342-3694`}>
               <img src="call_icon.png" alt="" />
             </button>
-            <button onClick={() => window.location.href = `sms:010-4019-4500`}>
+            <button onClick={() => window.location.href = `sms:010-9342-3694`}>
               <img src="messenger.png" alt="" />
             </button>
           </div>
@@ -188,7 +199,7 @@ function App() {
         <div style={{ backgroundColor: '#eee', padding: '30px 15px 40px'}}>
           <h3 className="place">한동대학교 김영길 GRACE 스쿨</h3>
           <p>
-            경북 포항시 북구 흥해읍 352-4 남송리 <span onClick={() => copyText('서울 영등포구 신풍로16길 1')}>복사</span>
+            경북 포항시 북구 흥해읍 352-4 남송리 <span onClick={() => copyText('경북 포항시 북구 흥해읍 352-4 남송리')}>복사</span>
           </p>
 
           <h3 className="left" style={{ marginTop: '30px'}}>KTX</h3>
