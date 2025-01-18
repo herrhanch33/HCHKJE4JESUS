@@ -32,7 +32,7 @@ function App() {
       <section className="intro">
         <div className="place">
           <p>
-            2025.05.04 토요일 오후 12시 30분<br />
+            2025.04.05 토요일 오후 12시 30분<br />
             <span>한동대학교 김영길 GRACE 스쿨</span>
           </p>
         </div>
@@ -50,7 +50,7 @@ function App() {
       </section>
 
       <section className="family">
-        <p>故 <span>한상륜 · 이정선</span> 의 장남 <span>한창희</span></p>
+        <p><span>한상륜 · 이정선</span> 의 장남 <span>한창희</span></p>
         <p><span>권영익 · 김영순 </span> 의 장녀 <span>권지은</span></p>
       </section>
 
