@@ -1,3 +1,9 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+} */
+
 .App {
   text-align: center;
   width: 100%;
@@ -121,6 +127,11 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   background-color: #FF85A1;
 }
 
+.center-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* 위 화살표 (∧) */
 .arrow-up::before,

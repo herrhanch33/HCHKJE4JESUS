@@ -54,7 +54,9 @@ function App() {
         <p><span>권영익 · 김영순 </span> 의 장녀 <span>권지은</span></p>
       </section>
 
-      <img src="slide-images/7.jpg" alt="" className="cover-img" />
+      <div className="center-img">
+        <img src="slide-images/7.jpg" alt="" className="cover-img" />
+      </div>
 
       <section className="groom-bride">
         <div className="groom">
@@ -218,7 +220,7 @@ function App() {
         
       </section>
       
-      <section className="after-party">
+      {/* <section className="after-party">
         <h3>피로연 안내</h3>
         <p className="date">일시 | 2025.03.03 15:00 ~ 19:00</p>
         <p className="place">장소 | 무</p>
@@ -230,7 +232,7 @@ function App() {
         >
           <MapMarker position={{ lat: 36.10358685346486, lng: 129.3889226319518 }}></MapMarker>
         </Map>
-      </section>
+      </section> */}
 
       <section className="bank-number">
         <h3>마음 전하실 곳</h3>
@@ -241,6 +243,7 @@ function App() {
           <br />
           소중한 축하를 보내주셔서 감사드리며,<br />
           따뜻한 마음에 깊이 감사드립니다
+          장소 특성상 화환은 정중히 사양합니다.
         </pre>
         <div className="groom">
           <h2>
