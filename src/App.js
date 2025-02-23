@@ -9,7 +9,7 @@ import Guestbook from './Guestbook';
 
 function App() {
   const images = [];
-  for (let i = 0; i < 13; i++) images.push(`slide-images/${i+1}.jpg`)
+  for (let i = 0; i < 11; i++) images.push(`slide-images/${i+1}.jpg`)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGroomExpend, setIsGroomExpend] = useState(true);
   const [isBrideExpend, setIsBrideExpend] = useState(true);
@@ -322,7 +322,7 @@ function App() {
           Edited by<br />
           Changhee & Jieun
         </p>
-        <img src="slide-images/13.jpg" alt="" />
+        <img src="slide-images/10.jpg" alt="" />
          <Guestbook /> 
       </section>
     </div>
