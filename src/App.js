@@ -54,9 +54,7 @@ function App() {
         <p><span>권영익 · 김영순 </span> 의 장녀 <span>권지은</span></p>
       </section>
 
-      <div className="center-img">
         <img src="slide-images/7.jpg" alt="" className="cover-img" />
-      </div>
 
       <section className="groom-bride">
         <div className="groom">
