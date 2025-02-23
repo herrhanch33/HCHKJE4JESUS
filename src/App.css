@@ -1,8 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
-
-body {
-  font-family: "Noto Sans KR", sans-serif;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
 
 .App {
   text-align: center;
@@ -10,9 +6,12 @@ body {
   max-width: 680px;
   margin: auto;
   margin-bottom: 200px;
+  font-family: 'Noto Serif KR', serif;
 }
 
-h2, h3, p {margin: 0;}
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, code {
+  font-family: 'Noto Serif KR', serif;
+}
 button {background: transparent; border:none; cursor: pointer;}
 
 .cover {width: 100%; overflow: hidden; height: 60vh; }

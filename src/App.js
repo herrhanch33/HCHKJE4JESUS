@@ -32,7 +32,7 @@ function App() {
       <section className="intro">
         <div className="place">
           <p>
-            2025.04.05 토요일 오후 12시 30분<br />
+            2025.04.05. 토요일 오후 12시 30분<br />
             <span>한동대학교 김영길 GRACE 스쿨</span>
           </p>
         </div>
@@ -213,9 +213,9 @@ function App() {
           <h3 className="left" style={{ marginTop: '30px'}}>주차</h3>
           <p className="left">김영길 GRACE 스쿨 및 한동대학교 주차장</p>
 
-          <h3 className="left" style={{ marginTop: '30px'}}>대절버스 안장</h3>
+          {/* <h3 className="left" style={{ marginTop: '30px'}}>대절버스 안장</h3>
           <p className="left">서울역 한동대학교 | 07:30 출발<br />
-          서울역| 한동대학교 15:00 출발</p>
+          서울역 한동대학교 | 15:00 출발</p> */}
         </div>
         
       </section>
