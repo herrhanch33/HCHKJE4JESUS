@@ -303,7 +303,7 @@ function App() {
               <h3>신부 부) 권영익</h3>
               <p>국민은행 606210657696 권영익</p>
             </div>
-            <button onClick={() => copyTex익("국민은행 606210657696 권영익")}>복사</button>
+            <button onClick={() => copyText("국민은행 606210657696 권영익")}>복사</button>
           </div>
           <div>  
             <div>  
@@ -318,8 +318,8 @@ function App() {
       <section className="guestbook">
         <p>
           Thanks to<br />
-          주평예수교회 형제자매들<br />
-          <br /> 
+          Jupyeong Alliance Church<br />
+          Brothers & Sisters<br /> 
         </p>
         <img src="slide-images/13.jpg" alt="" />
          <Guestbook /> 
