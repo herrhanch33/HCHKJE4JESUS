@@ -160,7 +160,7 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 /* Make it shrink on mobile */
 @media (max-width: 600px) {
   .bible-verses {
-    font-size: 10px;  /* Smaller text for mobile */
+    font-size: 12px;  /* Smaller text for mobile */
     white-space: nowrap; /* Prevents line breaks */
     overflow: hidden;
     text-overflow: ellipsis; /* Adds "..." if too long */
@@ -193,13 +193,22 @@ img {
 /* ================= Guestbook Styling ================= */
 .guestbook-container {
   width: 90%;
-  max-width: 500px;  /* Adjusted width */
+  max-width: 500px;
   margin: 30px auto;
   padding: 20px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;  /* Shifted text to the left */
+  text-align: left;
+}
+
+/* Centered Thank You Message */
+.guestbook-thank-you {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 /* Guestbook List */
@@ -243,7 +252,7 @@ img {
 /* Form Inputs */
 .guestbook-form input,
 .guestbook-form textarea {
-  width: 95%; /* Reduced input field size */
+  width: 95%;
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
@@ -266,6 +275,7 @@ img {
 .guestbook-form button:hover {
   background-color: #45a049;
 }
+
 
 /* ================= RSVP Styling ================= */
 .rsvp-container {

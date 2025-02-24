@@ -28,11 +28,11 @@ const Guestbook = () => {
     const newEntry = {
       name,
       message,
-      timestamp: new Date().toLocaleString(), // Convert timestamp to readable format
+      timestamp: new Date().toISOString(), // Save as ISO format
     };
 
     await addDoc(collection(db, "guestbook"), newEntry);
-    setEntries([...entries, newEntry]); // Update UI immediately
+    setEntries([...entries, newEntry]);
     setName("");
     setMessage("");
   };
@@ -40,6 +40,9 @@ const Guestbook = () => {
   return (
     <div className="guestbook-container">
       <h1>📖 방명록</h1>
+      
+      <p className="guestbook-thank-you">Thanks to Jupyeong Alliance Church brothers and sisters</p>
+      
       {entries.length === 0 ? (
         <p style={{ textAlign: "center" }}>아직 작성된 방명록이 없습니다.</p>
       ) : (
@@ -48,7 +51,9 @@ const Guestbook = () => {
             <li key={entry.id} className="guestbook-entry">
               <div className="guestbook-header">
                 <strong>{entry.name}</strong>
-                <span className="timestamp">{entry.timestamp}</span>
+                <span className="timestamp">
+                  {new Date(entry.timestamp).toLocaleString("ko-KR")}
+                </span>
               </div>
               <p className="guestbook-message">{entry.message}</p>
             </li>
