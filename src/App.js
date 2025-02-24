@@ -36,15 +36,21 @@ function App() {
             <span>한동대학교 김영길 GRACE 스쿨</span>
           </p>
         </div>
-        <h3>결혼합니다</h3>
+        <h3>한창희 † 권지은 결혼 예배</h3>
         <p>
-          하나님의 은혜로<br />
-          서로 다른 두 사람이 만나<br />
-          한 가정을 이룹니다.<br />
+          "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라.(요일4:19)"<br />
+          "We love because he first loved us.(1John 4:19)"<br />
           <br />
-          주님의 사랑 안에서<br />
-          거룩한 가정을 이룰 수 있도록<br />
-          축복해 주시고 기도해주시면<br />
+          하나님의 인도하심으로 <br />
+          만난 두 사람이 <br />
+          <br />
+          예수 그리스도 안에서 <br />
+          참소망을 발견하고 <br />
+          <br />
+          한 성령 안에서<br />
+          서로 사랑하기를 언약하는 자리에<br />
+          <br />
+          함께 축복해주시고 증인이 되어 주시면 <br />
           감사하겠습니다.
         </p>
       </section>
@@ -199,7 +205,7 @@ function App() {
         <div style={{ backgroundColor: '#eee', padding: '30px 15px 40px'}}>
           <h3 className="place">한동대학교 김영길 GRACE 스쿨</h3>
           <p>
-            경북 포항시 북구 흥해읍 352-4 남송리 <span onClick={() => copyText('경북 포항시 북구 흥해읍 352-4 남송리')}>복사</span>
+            경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨 <span onClick={() => copyText('경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨')}>복사</span>
           </p>
 
           <h3 className="left" style={{ marginTop: '30px'}}>KTX</h3>
@@ -235,14 +241,8 @@ function App() {
       <section className="bank-number">
         <h3>마음 전하실 곳</h3>
         <pre>
-          멀리서도 축하의 마음을<br />
-          전하고 싶으신 분들을 위해<br />
-          계좌번호를 안내드립니다.<br />
-          <br />
-          소중한 축하를 보내주셔서 감사드리며,<br />
-          따뜻한 마음에 깊이 감사드립니다.<br />
-          장소 특성상 화환은 정중히 사양합니다.<br />
-          <br />
+          따듯한 마음에 깊이 감사드립니다.<br />
+          * 화환은 수령이 어려운 점 양해 부탁드립니다.<br />
         </pre>
         <div className="groom">
           <h2>
@@ -265,17 +265,17 @@ function App() {
             <div>  
             <div>  
               <h3>신랑 부) 한상륜</h3>
-              <p>IBK기업은행 15812469401016 한창희</p>
+              <p>국민은행 429501-56-3311 한상륜</p>
             </div>
-            <button onClick={() => copyText("IBK기업은행 15812469401016 한창희")}>복사</button>
+            <button onClick={() => copyText("국민은행 429501-56-3311 한상륜")}>복사</button>
           </div>
           <div>  
             {/* <div style={{ borderTop: 'none'}}>   */}
               <div>  
                 <h3>신랑 모) 이정선</h3>
-                <p>IBK기업은행 15812469401016 한창희</p>
+                <p>국민은행 70300101467034 이정선</p>
               </div>
-              <button onClick={() => copyText("IBK기업은행 15812469401016 한창희")}>복사</button>
+              <button onClick={() => copyText("국민은행 70300101467034 이정선")}>복사</button>
             </div>
             </>
           )}
@@ -318,7 +318,8 @@ function App() {
       <section className="guestbook">
         <p>
           Thanks to<br />
-          Jupyeong Alliance Church<br />
+          Our Lord Jesus Christ,<br />
+          Jupyeong Alliance Church,<br />
           Brothers & Sisters<br /> 
         </p>
         <img src="slide-images/13.jpg" alt="" />
