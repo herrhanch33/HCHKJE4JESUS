@@ -40,9 +40,11 @@ function App() {
           </p>
         </div>
         <h3>한창희 † 권지은 결혼 예배</h3>
-        <p className="bible-verses">
+        <section className="bible-verses">
           "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라.(요일4:19)"<br />
           "We love because he first loved us.(1John 4:19)"<br />
+          </section>
+          <p>
           <br />
           하나님의 인도하심으로 <br />
           만난 두 사람이 <br />
@@ -55,7 +57,7 @@ function App() {
           <br />
           함께 축복해주시고 증인이 되어 주시면 <br />
           감사하겠습니다.
-        </p>
+          </p>
       </section>
 
       <section className="family">
