@@ -25,8 +25,11 @@ const AdminPanel = () => {
     setGuestbookEntries(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
   };
 
-  const handleLogin = () => {
-    if (adminPassword === "YOUR_ADMIN_PASSWORD") {
+  const handleLogin = async () => {
+    const querySnapshot = await getDocs(collection(db, "admin"));
+    const adminData = querySnapshot.docs[0]?.data(); // Fetch stored admin password
+  
+    if (adminData?.password === adminPassword) {
       setIsAuthenticated(true);
     } else {
       alert("잘못된 비밀번호입니다!");
