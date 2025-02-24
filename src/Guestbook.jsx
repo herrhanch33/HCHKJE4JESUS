@@ -8,9 +8,30 @@ const Guestbook = () => {
 
   // 초기화: LocalStorage에서 데이터 불러오기
   useEffect(() => {
+    const storedEntries = JSON.parse(localStorage.getItem("guestbookEntries")) || [];
+    setEntries(storedEntries);
   }, []);
 
+  // 방명록 추가 Add new guesttbook entry
   const handleAddEntry = async () => {
+    if(!name || !message) {
+      alert("이름과 메시지를 입력해주세요.");
+      return;
+    }
+
+    const newEntry = {
+      id: Date.now(),
+      name,
+      message,
+      timestamp: new Date().toLocaleString(),
+    };
+
+    const updatedEntries = [...entries, newEntry];
+    setEntries(updatedEntries);
+    localStorage.setItem("guestbookEntries", JSON.stringify(updatedEntries));
+
+    setName("");
+    setMessage("");
   };
 
   // 방명록 목록 렌더링
@@ -87,3 +108,4 @@ const Guestbook = () => {
 }
 
 export default Guestbook;
+

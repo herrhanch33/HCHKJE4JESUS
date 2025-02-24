@@ -6,6 +6,9 @@ import { Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import Guestbook from './Guestbook';
+import RSVP from "./RSVP";
+import BGM from "./BGM";
+import BackgroundMusic from './BGM';
 
 function App() {
   const images = [];
@@ -328,7 +331,13 @@ function App() {
         <img src="slide-images/13.jpg" alt="" />
          <Guestbook /> 
       </section>
+
+      <section className="rsvp">
+        <RSVP /> {/* RSVP */}
+      </section>
+    <BackgroundMusic /> {/* BGM */}
     </div>
+
   );
 }
 
