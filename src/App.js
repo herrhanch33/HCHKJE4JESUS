@@ -37,7 +37,7 @@ function App() {
           </p>
         </div>
         <h3>한창희 † 권지은 결혼 예배</h3>
-        <p>
+        <p className="bible-verses">
           "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라.(요일4:19)"<br />
           "We love because he first loved us.(1John 4:19)"<br />
           <br />
@@ -60,7 +60,7 @@ function App() {
         <p><span>권영익 · 김영순 </span> 의 장녀 <span>권지은</span></p>
       </section>
 
-        <img src="slide-images/8.jpg" alt="" className="cover-img" />
+        <img src="slide-images/7.jpg" alt="" className="cover-img" />
 
       <section className="groom-bride">
         <div className="groom">
@@ -240,10 +240,10 @@ function App() {
 
       <section className="bank-number">
         <h3>마음 전하실 곳</h3>
-        <pre>
+        {/* <pre>
           따듯한 마음에 깊이 감사드립니다.<br />
           *화환은 수령이 어려운 점 양해 부탁드립니다.<br />
-        </pre>
+        </pre> */}
         <div className="groom">
           <h2>
             <div>
@@ -288,9 +288,11 @@ function App() {
               <h3 style={{ color: '#ff85a1'}}>신부측</h3>
               <button onClick={() => setIsBrideExpend(!isBrideExpend)}>
                 <div className={isBrideExpend ? 'arrow bride arrow-up' : 'arrow bride arrow-down'}></div>
-              </button>
+              </button> 
             </div>
           </h2> 
+          {isBrideExpend && (
+            <>
           <div>  
             <div>  
               <h3>신부 권지은</h3>
@@ -312,14 +314,15 @@ function App() {
             </div>
             <button onClick={() => copyText("국민은행 619210601898 김영순")}>복사</button>
           </div>
+          </>
+          )}
         </div>
       </section>
 
       <section className="guestbook">
         <p>
           Thanks to<br />
-          Our Lord Jesus Christ,<br />
-          Jupyeong Alliance Church,<br />
+          Jupyeong Alliance Church<br />
           Brothers & Sisters<br /> 
         </p>
         <img src="slide-images/13.jpg" alt="" />

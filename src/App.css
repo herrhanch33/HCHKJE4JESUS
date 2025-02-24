@@ -126,12 +126,6 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   background-color: #FF85A1;
 }
 
-/* .center-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 /* 위 화살표 (∧) */
 .arrow-up::before,
 .arrow-up::after {
@@ -150,6 +144,14 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 .arrow-up::after {
   transform: rotate(45deg);
   right: 0;
+}
+
+/* Add media queries for mobile devices */
+@media (max-width: 600px){
+  .bible-verses {
+    font-size: 4vw; /* adjust font size for mobile screens */
+    line-height: 6vw; /* adjust line height for mobile screens */
+  }
 }
 
 .guestbook {margin-top: 50px; position: relative; }
