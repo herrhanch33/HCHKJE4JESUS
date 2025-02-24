@@ -1,111 +1,59 @@
 import React, { useState, useEffect } from "react";
+import { db } from "./firebase";
+import { collection, addDoc, getDocs, updateDoc, doc, deleteDoc } from "firebase/firestore";
 
 const Guestbook = () => {
   const [entries, setEntries] = useState([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [editId, setEditId] = useState(null);
 
-
-  // 초기화: LocalStorage에서 데이터 불러오기
   useEffect(() => {
-    const storedEntries = JSON.parse(localStorage.getItem("guestbookEntries")) || [];
-    setEntries(storedEntries);
+    const fetchEntries = async () => {
+      const querySnapshot = await getDocs(collection(db, "guestbook"));
+      const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setEntries(data);
+    };
+    fetchEntries();
   }, []);
 
-  // 방명록 추가 Add new guesttbook entry
-  const handleAddEntry = async () => {
-    if(!name || !message) {
+  const handleAddOrUpdateEntry = async () => {
+    if (!name || !message) {
       alert("이름과 메시지를 입력해주세요.");
       return;
     }
 
-    const newEntry = {
-      id: Date.now(),
-      name,
-      message,
-      timestamp: new Date().toLocaleString(),
-    };
+    if (editId) {
+      await updateDoc(doc(db, "guestbook", editId), { name, message });
+      setEditId(null);
+    } else {
+      await addDoc(collection(db, "guestbook"), { name, message });
+    }
 
-    const updatedEntries = [...entries, newEntry];
-    setEntries(updatedEntries);
-    localStorage.setItem("guestbookEntries", JSON.stringify(updatedEntries));
-
+    alert("메시지가 저장되었습니다!");
     setName("");
     setMessage("");
   };
 
-  // 방명록 목록 렌더링
+  const deleteEntry = async (id) => {
+    await deleteDoc(doc(db, "guestbook", id));
+  };
+
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
+    <div>
       <h1>방명록</h1>
-      {entries.length === 0 ? (
-        <p style={{ textAlign: "center" }}>아직 작성된 방명록이 없습니다.</p>
-      ) : (
-        <ul style={{ listStyleType: "none", padding: 0 }}>
-          {entries.map((entry) => (
-            <li
-              key={entry.id}
-              style={{
-                marginBottom: "10px",
-                padding: "10px",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
-            >
-              <strong>{entry.name}</strong> <small>({entry.timestamp})</small>
-              <p>{entry.message}</p>
-            </li>
-          ))}
-        </ul>
-      )}
-      <div style={{ marginTop: '20px'}}>
-      <div style={{ marginBottom: "10px" }}>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="이름"
-            style={{
-              padding: "10px",
-              width: "100%",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-            }}
-          />
+      {entries.map((entry) => (
+        <div key={entry.id}>
+          <strong>{entry.name}</strong>: {entry.message}
+          <button onClick={() => setEditId(entry.id)}>수정</button>
+          <button onClick={() => deleteEntry(entry.id)}>삭제</button>
         </div>
-        <div style={{ marginBottom: "10px" }}>
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="메시지"
-            style={{
-              padding: "10px",
-              width: "100%",
-              height: "100px", // 높이 증가
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              resize: "none", // 사용자가 크기 조정하지 못하도록 설정
-            }}
-          />
-        </div>
-      </div>
-      <button
-          onClick={handleAddEntry}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            marginTop: '20px',
-          }}
-        >
-          추가하기
-        </button>
+      ))}
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="이름" />
+      <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="메시지" />
+      <button onClick={handleAddOrUpdateEntry}>{editId ? "수정 완료" : "추가하기"}</button>
     </div>
   );
-}
+};
 
 export default Guestbook;
-

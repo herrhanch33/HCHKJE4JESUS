@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <section className="cover">
-        <img src="image1.jpg" alt="Cover" />
+        <img src="/image1.jpg" alt="Cover" />
       </section>
 
       <section className="intro">
