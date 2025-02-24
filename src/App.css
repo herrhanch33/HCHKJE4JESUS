@@ -257,25 +257,34 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 .admin-panel {
   position: fixed;
   bottom: 10px;
-  right: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 5px 10px;
+  padding: 8px 15px;
   font-size: 12px;
-  border-radius: 5px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000; /* Ensure it's always on top */
+  white-space: nowrap; /* Prevents it from taking up unnecessary width */
+  max-width: 90vw; /* Prevents it from being too wide */
 }
 
+/* Input field inside Admin Panel */
 .admin-login input {
-  width: 100px;
+  width: 120px;
   padding: 5px;
   font-size: 12px;
 }
 
+/* Button inside Admin Panel */
 .admin-login button {
-  padding: 5px;
+  padding: 5px 10px;
   font-size: 12px;
   background-color: #FF85A1;
   border: none;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
+
