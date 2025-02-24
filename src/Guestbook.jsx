@@ -39,10 +39,7 @@ const Guestbook = () => {
 
   return (
     <div className="guestbook-container">
-      <h1>📖 방명록</h1>
-      
-      <p className="guestbook-thank-you">Thanks to Jupyeong Alliance Church brothers and sisters</p>
-      
+      <h1>📖 방명록</h1>      
       {entries.length === 0 ? (
         <p style={{ textAlign: "center" }}>아직 작성된 방명록이 없습니다.</p>
       ) : (

@@ -325,14 +325,17 @@ function App() {
       </section>
 
       <section className="guestbook">
-        <p>
-          Thanks to<br />
-          Jupyeong Alliance Church<br />
-          Brothers & Sisters<br /> 
-        </p>
+        <div className="guestbook-intro">
+          <p>
+            Thanks to<br />
+            Jupyeong Alliance Church<br />
+            Brothers & Sisters<br />
+          </p>
+        </div>
         <img src="slide-images/13.jpg" alt="" />
-         <Guestbook /> 
+        <Guestbook />
       </section>
+
 
       <section className="rsvp">
         <RSVP /> {/* RSVP */}
