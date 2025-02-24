@@ -9,7 +9,7 @@ import Guestbook from './Guestbook';
 
 function App() {
   const images = [];
-  for (let i = 0; i < 11; i++) images.push(`slide-images/${i+1}.jpg`)
+  for (let i = 0; i < 12; i++) images.push(`slide-images/${i+1}.jpg`)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGroomExpend, setIsGroomExpend] = useState(true);
   const [isBrideExpend, setIsBrideExpend] = useState(true);
@@ -54,7 +54,7 @@ function App() {
         <p><span>권영익 · 김영순 </span> 의 장녀 <span>권지은</span></p>
       </section>
 
-        <img src="slide-images/7.jpg" alt="" className="cover-img" />
+        <img src="slide-images/8.jpg" alt="" className="cover-img" />
 
       <section className="groom-bride">
         <div className="groom">
@@ -301,26 +301,27 @@ function App() {
           <div>  
             <div>  
               <h3>신부 부) 권영익</h3>
-              <p>국민은행 59420204088297 권지은</p>
+              <p>국민은행 606210657696 권영익</p>
             </div>
-            <button onClick={() => copyText("국민은행 59420204088297 권지은")}>복사</button>
+            <button onClick={() => copyTex익("국민은행 606210657696 권영익")}>복사</button>
           </div>
           <div>  
             <div>  
               <h3>신부 모) 김영순</h3>
-              <p>국민은행 59420204088297 권지은</p>
+              <p>국민은행 619210601898 김영숙</p>
             </div>
-            <button onClick={() => copyText("국민은행 59420204088297 권지은")}>복사</button>
+            <button onClick={() => copyText("국민은행 619210601898 김영순")}>복사</button>
           </div>
         </div>
       </section>
 
       <section className="guestbook">
         <p>
-          Edited by<br />
-          Changhee & Jieun
+          Thanks to<br />
+          주평예수교회 형제자매들<br />
+          <br /> 
         </p>
-        <img src="slide-images/10.jpg" alt="" />
+        <img src="slide-images/13.jpg" alt="" />
          <Guestbook /> 
       </section>
     </div>
