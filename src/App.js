@@ -210,7 +210,8 @@ function App() {
         <div style={{ backgroundColor: '#eee', padding: '30px 15px 40px'}}>
           <h3 className="place">한동대학교 김영길 GRACE 스쿨</h3>
           <p>
-            경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨 <span onClick={() => copyText('경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨')}>복사</span>
+            경북 포항시 북구 흥해읍 한동로 558<br /> 
+            한동대학교 김영길그레이스스쿨 <span onClick={() => copyText('경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨')}>복사</span>
           </p>
 
           <h3 className="left" style={{ marginTop: '30px'}}>KTX</h3>
@@ -221,7 +222,6 @@ function App() {
 
           <h3 className="left" style={{ marginTop: '30px'}}>주차</h3>
           <p className="left">한동대학교 및 김영길 GRACE 스쿨 주차장 </p>
-장
           {/* <h3 className="left" style={{ marginTop: '30px'}}>대절버스 안장</h3>
           <p className="left">서울역 한동대학교 | 07:30 출발<br />
           서울역 한동대학교 | 15:00 출발</p> */}
@@ -326,11 +326,9 @@ function App() {
 
       <section className="guestbook">
         <div className="guestbook-intro">
-          <p>
             Thanks to<br />
             Jupyeong Alliance Church<br />
             Brothers & Sisters<br />
-          </p>
         </div>
         <img src="slide-images/13.jpg" alt="" />
         <Guestbook />
