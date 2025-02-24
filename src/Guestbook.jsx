@@ -35,19 +35,28 @@ const Guestbook = () => {
     setMessage("");
   };
 
+  const handleEdit = (id) => {
+    const entry = entries.find((entry) => entry.id === id);
+    setName(entry.name);
+    setMessage(entry.message);
+    setEditId(id);
+  };
+
   const deleteEntry = async (id) => {
     await deleteDoc(doc(db, "guestbook", id));
+    setEntries(entries.filter(entry => entry.id !== id));
   };
 
   return (
-    <div>
-      <h1>방명록</h1>
+    <div className="guestbook">
+      <h1>📖 방명록</h1>
       {entries.map((entry) => (
-        <div key={entry.id}>
-          <strong>{entry.name}</strong>: {entry.message}
-          <button onClick={() => setEditId(entry.id)}>수정</button>
-          <button onClick={() => deleteEntry(entry.id)}>삭제</button>
-        </div>
+        <li key={entry.id}>
+          <strong>{entry.name}</strong> ({entry.timestamp})
+          <p>{entry.message}</p>
+          <button className="edit-btn" onClick={() => handleEdit(entry.id)}>✏️ 수정</button>
+          <button className="delete-btn" onClick={() => deleteEntry(entry.id)}>🗑️ 삭제</button>
+        </li>
       ))}
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="이름" />
       <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="메시지" />

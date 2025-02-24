@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, code {
 button {background: transparent; border:none; cursor: pointer;}
 
 .cover {width: 100%; overflow: hidden; height: 60vh; }
-.cover-img { width: 100%; height: 300px; object-fit: cover; object-position: center; display: inline-block; margin-top:50px;}
+.cover > img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
 .intro { text-align: center}
 .intro > .place { padding: 20px; background-color: #D3D3D3; display: flex; justify-content: center; margin-bottom: 60px;}
@@ -28,6 +28,7 @@ button {background: transparent; border:none; cursor: pointer;}
 .family > p { font-size: 16px; margin-top: 10px; text-align: right; }
 .family > p > span {font-weight: 700; font-size: 20px;}
 
+.cover-img { width: 100%; height: 300px; object-fit: cover; object-position: center; display: inline-block; margin-top:50px;}
 /* .cover-img { width: 100%; height: 300px; object-fit: cover; object-position: 0 60%; display: inline-block; margin-top:50px;} */
 
 .groom-bride{display: flex; gap: 10px; margin-top: 70px; align-items: flex-start; padding: 0 10px; }
@@ -154,7 +155,103 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   }
 }
 
-.guestbook {margin-top: 50px; position: relative; }
+/* .guestbook {margin-top: 50px; position: relative; }
 .guestbook > p { position: absolute; color: white; text-align: center; left: 0; right: 0; top: 5%; font-size: 16px; font-weight: 700;}
 
-.guestbook > img {width: 100%; border-radius: 2px; }
+.guestbook > img {width: 100%; border-radius: 2px; } */
+
+/* ================= Guestbook & RSVP Styles ================= */
+
+.guestbook, .rsvp, .admin-panel {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.guestbook h1, .rsvp h1, .admin-panel h1 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.guestbook input, .guestbook textarea,
+.rsvp input, .rsvp textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.guestbook button, .rsvp button, .admin-panel button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #FF85A1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.guestbook button:hover, .rsvp button:hover, .admin-panel button:hover {
+  background-color: #ff6b91;
+}
+
+.guestbook ul, .rsvp ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.guestbook li, .rsvp li {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.guestbook li strong {
+  color: #4169E1;
+}
+
+.guestbook .edit-btn, .guestbook .delete-btn {
+  background: none;
+  color: #FF85A1;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.guestbook .edit-btn:hover, .guestbook .delete-btn:hover {
+  text-decoration: underline;
+}
+
+/* ================= Admin Panel Styling ================= */
+
+.admin-panel {
+  margin-top: 60px;
+}
+
+.admin-panel input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.admin-panel button {
+  background-color: #4169E1;
+}
+
+.admin-panel button:hover {
+  background-color: #365AB0;
+}

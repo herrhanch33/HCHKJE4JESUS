@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import Guestbook from './Guestbook';
 import RSVP from "./RSVP";
-import BGM from "./BGM";
 import BackgroundMusic from './BGM';
 import AdminPanel from './Admin';
 
@@ -30,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <section className="cover">
-        <img src="/image1.jpg" alt="Cover" />
+        <img src="mainimg.jpg" alt="cover" />
       </section>
 
       <section className="intro">

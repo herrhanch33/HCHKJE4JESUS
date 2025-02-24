@@ -34,16 +34,16 @@ const AdminPanel = () => {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
+    <div className="admin-panel">
       {!isAuthenticated ? (
         <div>
-          <h2>관리자 로그인</h2>
+          <h2>🔑 관리자 로그인</h2>
           <input type="password" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} placeholder="관리자 비밀번호 입력" />
           <button onClick={handleLogin}>로그인</button>
         </div>
       ) : (
         <div>
-          <h2>RSVP 목록</h2>
+          <h2>🎟️ RSVP 목록</h2>
           <ul>
             {rsvpList.map((entry) => (
               <li key={entry.id}>
@@ -52,7 +52,7 @@ const AdminPanel = () => {
             ))}
           </ul>
 
-          <h2>방명록 목록</h2>
+          <h2>📖 방명록 목록</h2>
           <ul>
             {guestbookEntries.map((entry) => (
               <li key={entry.id}>
