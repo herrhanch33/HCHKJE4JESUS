@@ -174,75 +174,6 @@ body, html {
   width: 100%;
 }
 
-/* ===================== Guestbook, RSVP, and Admin Panel ===================== */
-.guestbook, .rsvp-container, .admin-panel {
-  width: 100%;  /* Ensure they never exceed screen width */
-  max-width: 600px; /* Keep them within a reasonable size */
-  margin: 30px auto;
-  padding: 20px;
-  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
-  overflow: hidden; /* Hide any hidden elements that might cause issues */
-}
-
-/* Fix inputs and text areas */
-.guestbook input, .guestbook textarea,
-.rsvp-container input, .rsvp-container textarea,
-.admin-panel input {
-  width: 100%; /* Ensure they fit inside */
-  max-width: 100%; /* No horizontal overflow */
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Ensure buttons fit properly */
-.guestbook button, .rsvp-container button, .admin-panel button {
-  width: 100%; /* Prevent overflow */
-  max-width: 200px; /* Keep button sizes reasonable */
-  margin: 10px auto; /* Center buttons */
-  padding: 10px;
-  background-color: #FF85A1;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* ===================== Admin Panel - FIXED to Bottom & Centered ===================== */
-.admin-panel {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 680px; /* Match the invitation width */
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-/* Fix admin login input size */
-.admin-login input {
-  width: 150px;
-  padding: 8px;
-  font-size: 14px;
-  max-width: 100%;
-}
-
-.admin-login button {
-  width: auto;
-  padding: 8px 12px;
-  font-size: 14px;
-}
-
 /* ===================== Guestbook Image Fix - Prevent Oversizing ===================== */
 .guestbook > img {
   width: 90%;  /* Ensure it doesn’t stretch */
@@ -259,3 +190,117 @@ img {
   height: auto;
   display: block;
 }
+/* ================= Guestbook Styling ================= */
+.guestbook-container {
+  width: 90%;
+  max-width: 500px;  /* Adjusted width */
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;  /* Shifted text to the left */
+}
+
+/* Guestbook List */
+.guestbook-list {
+  list-style-type: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Individual Guestbook Entry */
+.guestbook-entry {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+}
+
+/* Name & Timestamp Formatting */
+.guestbook-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Message Formatting */
+.guestbook-message {
+  font-size: 14px;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* Form Inputs */
+.guestbook-form input,
+.guestbook-form textarea {
+  width: 95%; /* Reduced input field size */
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Submit Button */
+.guestbook-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.guestbook-form button:hover {
+  background-color: #45a049;
+}
+
+/* ================= RSVP Styling ================= */
+.rsvp-container {
+  width: 90%;
+  max-width: 500px;  /* Adjusted width */
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.rsvp-form input {
+  width: 95%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rsvp-form button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #FF85A1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.rsvp-form button:hover {
+  background-color: #ff6b91;
+}
+

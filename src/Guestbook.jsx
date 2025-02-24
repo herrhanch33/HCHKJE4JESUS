@@ -1,85 +1,74 @@
 import React, { useState, useEffect } from "react";
 import { db } from "./firebase";
-import { collection, addDoc, getDocs, updateDoc, doc, deleteDoc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 const Guestbook = () => {
   const [entries, setEntries] = useState([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [editId, setEditId] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const fetchEntries = async () => {
       const querySnapshot = await getDocs(collection(db, "guestbook"));
-      const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const data = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setEntries(data);
     };
     fetchEntries();
   }, []);
 
-  useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user && user.uid === "YOUR_ADMIN_UID") {
-        setIsAdmin(true);
-      } else {
-        setIsAdmin(false);
-      }
-    });
-  }, []);
-
-  const handleAddOrUpdateEntry = async () => {
+  const handleAddEntry = async () => {
     if (!name || !message) {
       alert("이름과 메시지를 입력해주세요.");
       return;
     }
 
-    if (editId && isAdmin) {
-      await updateDoc(doc(db, "guestbook", editId), { name, message });
-      setEditId(null);
-    } else if (!editId) {
-      await addDoc(collection(db, "guestbook"), { name, message });
-    }
+    const newEntry = {
+      name,
+      message,
+      timestamp: new Date().toLocaleString(), // Convert timestamp to readable format
+    };
 
-    alert("메시지가 저장되었습니다!");
+    await addDoc(collection(db, "guestbook"), newEntry);
+    setEntries([...entries, newEntry]); // Update UI immediately
     setName("");
     setMessage("");
   };
 
-  const handleEdit = (id) => {
-    if (!isAdmin) return;
-    const entry = entries.find((entry) => entry.id === id);
-    setName(entry.name);
-    setMessage(entry.message);
-    setEditId(id);
-  };
-
-  const deleteEntry = async (id) => {
-    if (!isAdmin) return;
-    await deleteDoc(doc(db, "guestbook", id));
-    setEntries(entries.filter(entry => entry.id !== id));
-  };
-
   return (
-    <div className="guestbook">
+    <div className="guestbook-container">
       <h1>📖 방명록</h1>
-      {entries.map((entry) => (
-        <li key={entry.id}>
-          <strong>{entry.name}</strong>
-          <p>{entry.message}</p>
-          {isAdmin && (
-            <>
-              <button className="edit-btn" onClick={() => handleEdit(entry.id)}>✏️ 수정</button>
-              <button className="delete-btn" onClick={() => deleteEntry(entry.id)}>🗑️ 삭제</button>
-            </>
-          )}
-        </li>
-      ))}
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="이름" />
-      <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="메시지" />
-      <button onClick={handleAddOrUpdateEntry}>{editId ? "수정 완료" : "추가하기"}</button>
+      {entries.length === 0 ? (
+        <p style={{ textAlign: "center" }}>아직 작성된 방명록이 없습니다.</p>
+      ) : (
+        <ul className="guestbook-list">
+          {entries.map((entry) => (
+            <li key={entry.id} className="guestbook-entry">
+              <div className="guestbook-header">
+                <strong>{entry.name}</strong>
+                <span className="timestamp">{entry.timestamp}</span>
+              </div>
+              <p className="guestbook-message">{entry.message}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="guestbook-form">
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="이름"
+        />
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="메시지"
+        />
+        <button onClick={handleAddEntry}>추가하기</button>
+      </div>
     </div>
   );
 };

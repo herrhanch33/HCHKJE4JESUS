@@ -338,11 +338,7 @@ function App() {
         <RSVP /> {/* RSVP */}
       </section>
     <BackgroundMusic /> {/* BGM */}
-    <div className="App">
-      <AdminPanel />
     </div>
-    </div>
-
   );
 }
 
