@@ -210,6 +210,49 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   cursor: pointer;
 }
 
+/* ================= RSVP Styling ================= */
+.rsvp-container {
+  width: 90%;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.rsvp-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rsvp-form button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #FF85A1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rsvp-form button:hover {
+  background-color: #ff6b91;
+}
+
+.rsvp-thank-you {
+  font-size: 18px;
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
 /* ================= Admin Panel Styling ================= */
 .admin-panel {
   position: fixed;

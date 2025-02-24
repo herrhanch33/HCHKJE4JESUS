@@ -3,16 +3,15 @@ import { db } from "./firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
 const RSVP = () => {
-  const [rsvpList, setRsvpList] = useState([]);
   const [rsvpName, setRsvpName] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const fetchRSVPs = async () => {
       const querySnapshot = await getDocs(collection(db, "rsvp"));
       const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      setRsvpList(data);
     };
     fetchRSVPs();
   }, []);
@@ -27,22 +26,26 @@ const RSVP = () => {
       rsvpName,
       phone,
       location,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toLocaleString(),
     });
 
     alert("RSVP가 제출되었습니다!");
-    setRsvpName("");
-    setPhone("");
-    setLocation("");
+    setSubmitted(true);
   };
 
   return (
-    <div>
-      <h1>RSVP</h1>
-      <input type="text" value={rsvpName} onChange={(e) => setRsvpName(e.target.value)} placeholder="이름" />
-      <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="전화번호" />
-      <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="출발 지역" />
-      <button onClick={handleRSVP}>참석 등록</button>
+    <div className="rsvp-container">
+      <h1>🎟️ RSVP</h1>
+      {!submitted ? (
+        <div className="rsvp-form">
+          <input type="text" value={rsvpName} onChange={(e) => setRsvpName(e.target.value)} placeholder="이름" />
+          <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="전화번호" />
+          <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="출발 지역" />
+          <button onClick={handleRSVP}>참석 등록</button>
+        </div>
+      ) : (
+        <p className="rsvp-thank-you">🎉 감사합니다! RSVP가 완료되었습니다.</p>
+      )}
     </div>
   );
 };
