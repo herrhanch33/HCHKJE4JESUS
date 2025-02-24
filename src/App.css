@@ -147,11 +147,24 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   right: 0;
 }
 
-/* Add media queries for mobile devices */
-@media (max-width: 600px){
+/* Bible Verse: Adjust Font Size for Mobile */
+.bible-verses {
+  font-size: 18px;  /* Default for desktop */
+  line-height: 1.5;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Make it shrink on mobile */
+@media (max-width: 600px) {
   .bible-verses {
-    font-size: 4vw; /* adjust font size for mobile screens */
-    line-height: 6vw; /* adjust line height for mobile screens */
+    font-size: 14px;  /* Smaller text for mobile */
+    white-space: nowrap; /* Prevents line breaks */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if too long */
+    max-width: 100%;
   }
 }
 
@@ -161,6 +174,22 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 .guestbook > img {width: 100%; border-radius: 2px; } */
 
 /* ================= Guestbook & RSVP Styles ================= */
+/* Guestbook Image: Adjust for Mobile */
+.guestbook > img {
+  width: 100%;  /* Ensure it fits within the screen */
+  max-width: 400px; /* Prevent it from being too large */
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Make it even smaller for very small screens */
+@media (max-width: 600px) {
+  .guestbook > img {
+    max-width: 80%; /* Reduce size for smaller screens */
+  }
+}
 
 .guestbook, .rsvp, .admin-panel {
   width: 90%;
