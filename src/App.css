@@ -160,7 +160,7 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 /* Make it shrink on mobile */
 @media (max-width: 600px) {
   .bible-verses {
-    font-size: 12px;  /* Smaller text for mobile */
+    font-size: 10px;  /* Smaller text for mobile */
     white-space: nowrap; /* Prevents line breaks */
     overflow: hidden;
     text-overflow: ellipsis; /* Adds "..." if too long */
@@ -168,126 +168,94 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   }
 }
 
-/* ================= Guestbook Image - Proper Sizing ================= */
-.guestbook > img {
-  width: 90%;  /* Make sure it doesn’t take up full width */
-  max-width: 300px; /* Limit max size */
-  height: auto;
-  border-radius: 5px;
-  display: block;
-  margin: 0 auto;
+/* ===================== General Fix for Overflow ===================== */
+body, html {
+  overflow-x: hidden; /* Completely remove horizontal scrolling */
+  width: 100%;
 }
-/* ================= Guestbook Styling ================= */
-.guestbook {
-  width: 90%;
-  max-width: 600px;
+
+/* ===================== Guestbook, RSVP, and Admin Panel ===================== */
+.guestbook, .rsvp-container, .admin-panel {
+  width: 100%;  /* Ensure they never exceed screen width */
+  max-width: 600px; /* Keep them within a reasonable size */
   margin: 30px auto;
   padding: 20px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+  overflow: hidden; /* Hide any hidden elements that might cause issues */
 }
 
-.guestbook-list {
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0;
-}
-
-.guestbook-entry {
-  list-style: none;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-}
-
-.guestbook-form input, .guestbook-form textarea {
-  width: 100%;
+/* Fix inputs and text areas */
+.guestbook input, .guestbook textarea,
+.rsvp-container input, .rsvp-container textarea,
+.admin-panel input {
+  width: 100%; /* Ensure they fit inside */
+  max-width: 100%; /* No horizontal overflow */
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 16px;
 }
 
-.guestbook-form button {
+/* Ensure buttons fit properly */
+.guestbook button, .rsvp-container button, .admin-panel button {
+  width: 100%; /* Prevent overflow */
+  max-width: 200px; /* Keep button sizes reasonable */
+  margin: 10px auto; /* Center buttons */
   padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-
-
-/* ================= RSVP Styling ================= */
-.rsvp-container {
-  width: 90%;
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.rsvp-form input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.rsvp-form button {
-  margin-top: 15px;
-  padding: 10px 15px;
   background-color: #FF85A1;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.rsvp-form button:hover {
-  background-color: #ff6b91;
-}
-
-.rsvp-thank-you {
-  font-size: 18px;
-  color: #4CAF50;
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-/* ================= Admin Panel - Middle Bottom ================= */
+/* ===================== Admin Panel - FIXED to Bottom & Centered ===================== */
 .admin-panel {
-  position: relative; /* No more floating */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  text-align: center;
-  margin-top: 30px; /* Adjust spacing */
+  max-width: 680px; /* Match the invitation width */
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  border-radius: 8px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
+/* Fix admin login input size */
 .admin-login input {
   width: 150px;
   padding: 8px;
   font-size: 14px;
+  max-width: 100%;
 }
 
 .admin-login button {
+  width: auto;
   padding: 8px 12px;
   font-size: 14px;
-  background-color: #FF85A1;
-  border: none;
-  color: white;
-  cursor: pointer;
+}
+
+/* ===================== Guestbook Image Fix - Prevent Oversizing ===================== */
+.guestbook > img {
+  width: 90%;  /* Ensure it doesn’t stretch */
+  max-width: 250px; /* Keep it a good size */
+  height: auto;
   border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Prevent images from causing horizontal scroll */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

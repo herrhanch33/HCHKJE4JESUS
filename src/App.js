@@ -220,8 +220,8 @@ function App() {
           <p className="left">한동대학교 하차 : 302, 마을버스</p>
 
           <h3 className="left" style={{ marginTop: '30px'}}>주차</h3>
-          <p className="left">김영길 GRACE 스쿨 및 한동대학교 주차장</p>
-
+          <p className="left">한동대학교 및 김영길 GRACE 스쿨 주차장 </p>
+장
           {/* <h3 className="left" style={{ marginTop: '30px'}}>대절버스 안장</h3>
           <p className="left">서울역 한동대학교 | 07:30 출발<br />
           서울역 한동대학교 | 15:00 출발</p> */}
