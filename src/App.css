@@ -160,7 +160,7 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 /* Make it shrink on mobile */
 @media (max-width: 600px) {
   .bible-verses {
-    font-size: 14px;  /* Smaller text for mobile */
+    font-size: 10px;  /* Smaller text for mobile */
     white-space: nowrap; /* Prevents line breaks */
     overflow: hidden;
     text-overflow: ellipsis; /* Adds "..." if too long */
