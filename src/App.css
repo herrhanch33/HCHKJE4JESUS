@@ -168,119 +168,93 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
   }
 }
 
-/* .guestbook {margin-top: 50px; position: relative; }
-.guestbook > p { position: absolute; color: white; text-align: center; left: 0; right: 0; top: 5%; font-size: 16px; font-weight: 700;}
-
-.guestbook > img {width: 100%; border-radius: 2px; } */
-
-/* ================= Guestbook & RSVP Styles ================= */
-/* Guestbook Image: Adjust for Mobile */
-.guestbook > img {
-  width: 100%;  /* Ensure it fits within the screen */
-  max-width: 400px; /* Prevent it from being too large */
-  height: auto;
-  border-radius: 5px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Make it even smaller for very small screens */
-@media (max-width: 600px) {
-  .guestbook > img {
-    max-width: 80%; /* Reduce size for smaller screens */
-  }
-}
-
-.guestbook, .rsvp, .admin-panel {
-  width: 90%;
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* ================= Guestbook Styling ================= */
+.guestbook {
+  margin-top: 50px;
   text-align: center;
 }
 
-.guestbook h1, .rsvp h1, .admin-panel h1 {
-  font-size: 22px;
-  color: #333;
-  margin-bottom: 15px;
+.guestbook h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #ff85a1;
 }
 
-.guestbook input, .guestbook textarea,
-.rsvp input, .rsvp textarea {
-  width: 100%;
+.guestbook-entries {
+  max-height: 300px; /* Make it scrollable if too long */
+  overflow-y: auto;
+  border: 1px solid #ddd;
   padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.guestbook-entry {
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.guestbook-entry strong {
   font-size: 16px;
 }
 
-.guestbook button, .rsvp button, .admin-panel button {
-  margin-top: 15px;
-  padding: 10px 15px;
-  background-color: #FF85A1;
+.guestbook-entry p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Guestbook Form */
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.guestbook-form button {
+  padding: 10px;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.guestbook button:hover, .rsvp button:hover, .admin-panel button:hover {
-  background-color: #ff6b91;
-}
-
-.guestbook ul, .rsvp ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.guestbook li, .rsvp li {
-  background: #f8f8f8;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.guestbook li strong {
-  color: #4169E1;
-}
-
-.guestbook .edit-btn, .guestbook .delete-btn {
-  background: none;
-  color: #FF85A1;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.guestbook .edit-btn:hover, .guestbook .delete-btn:hover {
-  text-decoration: underline;
 }
 
 /* ================= Admin Panel Styling ================= */
-
 .admin-panel {
-  margin-top: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.admin-panel h2 {
+  font-size: 14px;
 }
 
 .admin-panel input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  width: 100px;
+  padding: 5px;
+  font-size: 12px;
 }
 
 .admin-panel button {
-  background-color: #4169E1;
-}
-
-.admin-panel button:hover {
-  background-color: #365AB0;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #FF85A1;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
