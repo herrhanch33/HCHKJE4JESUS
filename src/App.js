@@ -9,6 +9,7 @@ import Guestbook from './Guestbook';
 import RSVP from "./RSVP";
 import BGM from "./BGM";
 import BackgroundMusic from './BGM';
+import AdminPanel from './Admin';
 
 function App() {
   const images = [];
@@ -336,6 +337,9 @@ function App() {
         <RSVP /> {/* RSVP */}
       </section>
     <BackgroundMusic /> {/* BGM */}
+    <div className="App">
+      <AdminPanel />
+    </div>
     </div>
 
   );
