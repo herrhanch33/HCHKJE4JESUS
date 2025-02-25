@@ -184,7 +184,7 @@ body, html {
   object-position: center;
   border-radius: 15px;
   display: block;
-  margin: 10 auto;
+  margin: 10px auto; 
 }
 /* Prevent images from causing horizontal scroll */
 img {
@@ -193,13 +193,13 @@ img {
   display: block;
 }
 /* ================= Guestbook Styling ================= */
-
 .guestbook-intro {
   text-align: center;
   margin-bottom: 10px; /* Adds space between text and image */
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.0;
   font-family: 'Dongle', sans-serif;
+  padding-top: 20px; /* Adds space above text */
 }
 .guestbook-container {
   width: 90%;
