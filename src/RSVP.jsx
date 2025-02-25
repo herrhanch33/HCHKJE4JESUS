@@ -41,7 +41,7 @@ const RSVP = () => {
 
   return (
     <div className="rsvp-container">
-      <h1>🎟️ RSVP</h1>
+      <h1>🎟️참석여부</h1>
       <div className="rsvp-form">
         <input
           type="text"

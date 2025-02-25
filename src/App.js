@@ -41,8 +41,8 @@ function App() {
         </div>
         <h3>한창희 † 권지은 결혼 예배</h3>
         <section className="bible-verses">
-          "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라.(요일4:19)"<br />
-          "We love because he first loved us.(1John 4:19)"<br />
+          "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라." (요일4:19)<br />
+          "We love because he first loved us." (1John 4:19)<br />
           </section>
           <p>
           <br />
@@ -214,14 +214,21 @@ function App() {
             한동대학교 김영길그레이스스쿨 <span onClick={() => copyText('경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨')}>복사</span>
           </p>
 
-          <h3 className="left" style={{ marginTop: '30px'}}>KTX</h3>
-          <p className="left">포항 KTX역</p>
+          <h3 className="left" style={{ marginTop: '30px'}}>KTX 이용 시</h3>
+          <p className="left">포항 KTX역 → 택시 이용 → 한동대학교 김영길 GRACE 스쿨</p>
+          <p className="left">포항 KTX역 → 120번 버스(시내행) 승차 → 우창동행정복지센터 하차 → 302번 버스 환승 → 한동대학교 하차</p>
+          
+          <h3 className="left" style={{ marginTop: '30px'}}>버스 이용 시</h3>
+          <p className="left">한동대학교 정류장 하차</p>
+          <p className="left">일반버스: 302번</p>
+          <p className="left">마을버스: 한동대학교 방면</p>
 
-          <h3 className="left" style={{ marginTop: '30px'}}>버스</h3>
-          <p className="left">한동대학교 하차 : 302, 마을버스</p>
+          <h3 className="left" style={{ marginTop: '30px'}}>한동대학교 → 김영길 GRACE 스쿨 이동</h3>
+          <p className="left">한동대학교 정문에서 도보 약 5~10분 소요</p>
+          <p className="left">정문에서 진입 후, 캠퍼스 내부 도보 이동 (표지판 참고)</p>
 
           <h3 className="left" style={{ marginTop: '30px'}}>주차</h3>
-          <p className="left">한동대학교 및 김영길 GRACE 스쿨 주차장 </p>
+          <p className="left">한동대학교 및 김영길 GRACE 스쿨 주차장 이용 가능</p>
           {/* <h3 className="left" style={{ marginTop: '30px'}}>대절버스 안장</h3>
           <p className="left">서울역 한동대학교 | 07:30 출발<br />
           서울역 한동대학교 | 15:00 출발</p> */}
@@ -326,7 +333,7 @@ function App() {
 
       <section className="guestbook">
         <div className="guestbook-intro">
-            Thanks to<br />
+            <br></br>Thanks to<br />
             Jupyeong Alliance Church<br />
             Brothers & Sisters<br />
         </div>

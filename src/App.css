@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=42dot+Sans:wght@400;700&display=swap');
 
 .App {
   text-align: center;
@@ -51,7 +53,7 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 .horizontal > div { border-bottom: 0.1px solid black; width: 100%;}
 
 .gallery {margin-top: 50px;}
-.gallery > h3 {font-size: 24px; text-align: center; font-weight:400; color: #FF85A1;}
+.gallery > h3 {font-size: 24px; text-align: center; font-weight: bold; color: #0B173B;}
 .gallery > .swiper {margin-top: 20px;}
 .gallery > .swiper > .swiper-wrapper {width: 100%; height: 50%; align-items: center;}
 .gallery > .swiper > .swiper-wrapper > .swiper-slide {display: flex; align-items: center; width: 100%; height: 100%;}
@@ -62,7 +64,7 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 .swiper-button-next, .swiper-button-prev {color: white !important;}
 
 .route { margin-top: 60px; }
-.route > h2 {font-size: 24px; color: #FF85A1;}
+.route > h2 {font-size: 24px; font-weight: bold; color: #0B173B;}
 .route > div > h3 {font-size: 20px; font-weight: 400; text-align: center;}
 .route > div > p {font-size: 16px; text-align: center; margin-top: 10px;}
 .route > div > p > span {font-size: 12px; text-decoration: underline; color: #777; cursor: pointer;}
@@ -80,7 +82,7 @@ button.call-parent {border: 1px solid #0D0D0D; margin-top: 40px; padding: 20px 3
 .after-party > p.address > span {color: #aaa; text-decoration: underline; font-size: 16px; cursor: pointer;}
 
 .bank-number {margin-top: 50px;}
-.bank-number > h3 {font-size: 24px; text-align: center; color: #ff85a1; font-weight: 400;}
+.bank-number > h3 {font-size: 24px; text-align: center; color: #0B173B; font-weight: bold;}
 .bank-number > pre {font-size: 16px; line-height: 24px; font-weight: 400; color: #555; margin-bottom: 50px;}
 
 .bank-number > div {margin-top: 20px; border-radius: 8px; padding: 10px; padding-bottom:0;}
@@ -176,13 +178,13 @@ body, html {
 
 /* ===================== Guestbook Image Fix - Prevent Oversizing ===================== */
 .guestbook > img {
-  width: 100%;  /* Ensure it doesn’t stretch */
-  height: 100%;
+  width: 50%;  /* Ensure it doesn’t stretch */
+  height: 50%;
   object-fit: cover; /* Keep it a good size */
   object-position: center;
-  border-radius: 5px;
+  border-radius: 15px;
   display: block;
-  margin: 0 auto;
+  margin: 10 auto;
 }
 /* Prevent images from causing horizontal scroll */
 img {
@@ -194,9 +196,10 @@ img {
 
 .guestbook-intro {
   text-align: center;
-  margin-bottom: 20px; /* Adds space between text and image */
-  font-size: 20px;
-  line-height: 1.6;
+  margin-bottom: 10px; /* Adds space between text and image */
+  font-size: 10px;
+  line-height: 1.0;
+  font-family: 'Dongle', sans-serif;
 }
 .guestbook-container {
   width: 90%;
@@ -268,6 +271,7 @@ img {
   cursor: pointer;
   margin-top: 10px;
   width: 100%;
+  font-family: '42dot Sans', sans-serif;
 }
 
 .guestbook-form button:hover {
@@ -306,6 +310,7 @@ img {
   cursor: pointer;
   transition: 0.3s;
   width: 100%;
+  font-family: '42dot Sans', sans-serif;
 }
 
 .rsvp-form button:hover {
