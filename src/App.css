@@ -176,6 +176,13 @@ body, html {
   width: 100%;
 }
 
+/* Prevent images from causing horizontal scroll */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ===================== Guestbook Image Fix - Prevent Oversizing ===================== */
 .guestbook > img {
   width: 50%;  /* Ensure it doesn’t stretch */
@@ -186,33 +193,38 @@ body, html {
   display: block;
   margin: 10px auto; 
 }
-/* Prevent images from causing horizontal scroll */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-/* ================= Guestbook Styling ================= */
-.guestbook-intro {
-  text-align: center;
-  margin-bottom: 10px; /* Adds space between text and image */
-  font-size: 16px;
-  line-height: 1.0;
-  font-family: 'Dongle', sans-serif;
-  padding-top: 20px; /* Adds space above text */
-}
+
+/* Guestbook Styling */
 .guestbook-container {
   width: 90%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 30px auto;
   padding: 20px;
   border-radius: 10px;
-  background: #fff;
+  background: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  font-family: 'Noto Serif KR', serif;
 }
 
-/* Guestbook List */
+.guestbook-container h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Add extra space before the message "Thanks to Jupyeong" */
+.guestbook-intro {
+  text-align: center;
+  margin-bottom: 10px; /* Adds space between text and image */
+  font-size: 14px;
+  line-height: 1.0;
+  font-family: 'Dongle', sans-serif;
+  padding-top: 20px; /* Add extra space before the message */
+}
+
 .guestbook-list {
   list-style-type: none;
   padding: 0;
@@ -220,16 +232,14 @@ img {
   overflow-y: auto;
 }
 
-/* Individual Guestbook Entry */
 .guestbook-entry {
   border: 1px solid #ddd;
   padding: 12px;
   border-radius: 6px;
   margin-bottom: 10px;
-  background-color: #f8f8f8;
+  background-color: #fff;
 }
 
-/* Name & Timestamp Formatting */
 .guestbook-header {
   display: flex;
   justify-content: space-between;
@@ -243,28 +253,26 @@ img {
   color: #777;
 }
 
-/* Message Formatting */
 .guestbook-message {
   font-size: 14px;
   color: #555;
   margin-top: 6px;
 }
 
-/* Form Inputs */
 .guestbook-form input,
 .guestbook-form textarea {
-  width: 95%;
+  width: 100%;
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+  font-family: 'Noto Serif KR', serif;
 }
 
-/* Submit Button */
 .guestbook-form button {
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 5px;
@@ -272,37 +280,48 @@ img {
   margin-top: 10px;
   width: 100%;
   font-family: '42dot Sans', sans-serif;
+  font-size: 16px;
 }
 
 .guestbook-form button:hover {
-  background-color: #45a049;
+  background-color: #555;
 }
 
-
-/* ================= RSVP Styling ================= */
+/* RSVP Styling */
 .rsvp-container {
   width: 90%;
-  max-width: 500px;  /* Adjusted width */
+  max-width: 600px;
   margin: 30px auto;
   padding: 20px;
   border-radius: 10px;
-  background: #fff;
+  background: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.rsvp-container h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .rsvp-form input {
-  width: 95%;
+  width: 100%;
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Noto Serif KR', serif;
 }
 
 .rsvp-form button {
   margin-top: 15px;
   padding: 10px 15px;
-  background-color: #FF85A1;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 5px;
@@ -314,6 +333,5 @@ img {
 }
 
 .rsvp-form button:hover {
-  background-color: #ff6b91;
+  background-color: #555;
 }
-
