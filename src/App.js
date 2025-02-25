@@ -39,7 +39,7 @@ function App() {
             <span>한동대학교 김영길 GRACE 스쿨</span>
           </p>
         </div>
-        <h3>한창희 ✟ 권지은 결혼 예배</h3>
+        <h3>한창희 † 권지은 결혼 예배</h3>
         <section className="bible-verses">
           "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라." (요일4:19)<br />
           "We love because he first loved us." (1John 4:19)<br />
@@ -253,13 +253,12 @@ function App() {
 
       <section className="bank-number">
         <h3>마음 전하실 곳</h3>
-        
+
         {/* Keeping your original pre-message 
         <pre>
           따듯한 마음에 깊이 감사드립니다.<br />
           *화환은 수령이 어려운 점 양해 부탁드립니다.<br />
-        </pre>
-        */}
+        </pre>*/}
 
         {/* Groom Section */}
         <div className="groom">
@@ -352,7 +351,6 @@ function App() {
           )}
         </div>
       </section>
-
    
       <section className="guestbook">
         <div className="guestbook-intro">
