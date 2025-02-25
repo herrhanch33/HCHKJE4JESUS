@@ -42,9 +42,6 @@ const RSVP = () => {
   return (
     <section className="rsvp-container">
       <h1>참석여부</h1>
-      <p className="rsvp-intro">
-        소중한 시간을 함께해 주실 수 있는지 알려주세요.
-      </p>
       <div className="rsvp-form">
         <input
           type="text"

@@ -191,7 +191,7 @@ img {
   object-position: center;
   border-radius: 15px;
   display: block;
-  margin: 10px auto; 
+  margin: 0 auto; 
 }
 
 /* ===================== Guestbook Section ===================== */
@@ -262,13 +262,14 @@ img {
 
 .guestbook-form input,
 .guestbook-form textarea {
-  width: 100%;
+  width: calc(100% - 20px); /* Adjust width to fit within the container */
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
   font-family: 'Noto Serif KR', serif;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 /* Guestbook Button */
@@ -310,14 +311,16 @@ img {
   margin-bottom: 20px;
 }
 
-.rsvp-form input {
-  width: 100%;
+.rsvp-form input,
+.rsvp-form select {
+  width: calc(100% - 20px); /* Adjust width to fit within the container */
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
   font-family: 'Noto Serif KR', serif;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 /* RSVP Button */

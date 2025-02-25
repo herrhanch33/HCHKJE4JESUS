@@ -199,6 +199,7 @@ function App() {
 
       <section className="route">
         <h2>오시는 길</h2>
+        
         <Map
           center={{ lat: 36.102520927369206, lng: 129.3820512860352 }}
           style={{ width: '100%', height: '400px', marginTop: '20px' }}
@@ -206,7 +207,7 @@ function App() {
         >
           <MapMarker position={{ lat: 36.102520927369206, lng: 129.3820512860352 }}></MapMarker>
         </Map>
-        
+
         <div style={{ backgroundColor: '#eee', padding: '30px 15px 40px' }}>
           <h3 className="place">한동대학교 김영길 GRACE 스쿨</h3>
           <p>
@@ -215,27 +216,25 @@ function App() {
           </p>
 
           <h3 className="left" style={{ marginTop: '30px' }}>KTX 이용</h3>
-          <ul className="left">
-            <li>포항 KTX역 → <strong>택시 이용</strong> (한동대학교 김영길 GRACE 스쿨)</li>
-            <li>포항 KTX역 → <strong>120번 버스</strong> → 우창동행정복지센터 하차 → <strong>302번 버스</strong> 환승 → 한동대학교</li>
-          </ul>
+          <p className="left">
+            포항 KTX역 → <strong>택시 이용</strong> (한동대학교 김영길 GRACE 스쿨)<br />
+            포항 KTX역 → <strong>120번 버스</strong> → 우창동행정복지센터 하차 → <strong>302번 버스</strong> 환승 → 한동대학교
+          </p>
 
           <h3 className="left" style={{ marginTop: '30px' }}>버스 이용</h3>
           <p className="left">
             한동대학교 정류장 하차<br />
-            일반버스: <strong>302번</strong><br />
-            마을버스: <strong>한동대학교 방면</strong>
+            일반버스: <strong>302번</strong>, 마을버스: <strong>한동대학교 방면</strong>
           </p>
 
           <h3 className="left" style={{ marginTop: '30px' }}>한동대학교 → 김영길 GRACE 스쿨</h3>
-          <p className="left">한동대학교 정문에서 <strong>도보 5~10분</strong> (캠퍼스 내 표지판 참고)</p>
+          <p className="left">
+            한동대학교 정문에서 <strong>도보 5~10분</strong> (캠퍼스 내 표지판 참고)
+          </p>
 
           <h3 className="left" style={{ marginTop: '30px' }}>주차 안내</h3>
           <p className="left">한동대학교 및 김영길 GRACE 스쿨 주차장 이용 가능</p>
-      </div>
-
-
-        
+        </div>
       </section>
       
       {/* <section className="after-party">
@@ -252,90 +251,108 @@ function App() {
         </Map>
       </section> */}
 
-    <section className="bank-number">
-      <h3>마음 전하실 곳</h3>
-      {/* <pre>
-        따듯한 마음에 깊이 감사드립니다.<br />
-        *화환은 수령이 어려운 점 양해 부탁드립니다.<br />
-      </pre> */}
-      <div className="groom">
-        <h2>
-          <div>
-            <h3>신랑측</h3>
-            <button onClick={() => setIsGroomExpend(!isGroomExpend)}>
-              <div className={isGroomExpend ? 'arrow arrow-up' : 'arrow arrow-down'}></div>
-            </button>
-          </div>
-        </h2>
+      <section className="bank-number">
+        <h3>마음 전하실 곳</h3>
+        
+        {/* Keeping your original pre-message 
+        <pre>
+          따듯한 마음에 깊이 감사드립니다.<br />
+          *화환은 수령이 어려운 점 양해 부탁드립니다.<br />
+        </pre>
+        */}
 
-        {isGroomExpend && (
-          <>
+        {/* Groom Section */}
+        <div className="groom">
+          <h2>
             <div>
-              <div>
-                <h3>신랑 한창희</h3>
-                <p>IBK기업은행 158-124694-01-016 한창희</p>
-              </div>
-              <button onClick={() => copyText("IBK기업은행 158-124694-01-016")}>복사</button>
+              <h3>신랑측</h3>
+              <button onClick={() => setIsGroomExpend(!isGroomExpend)}>
+                <div className={isGroomExpend ? "arrow arrow-up" : "arrow arrow-down"}></div>
+              </button>
             </div>
+          </h2>
 
-            <div style={{ borderTop: "none" }}>
+          {isGroomExpend && (
+            <>
               <div>
-                <h3>신랑 부) 한상륜</h3>
-                <p>국민은행 429501-56-3311 한상륜</p>
+                <div>
+                  <h3>신랑 한창희</h3>
+                  <p>IBK기업은행 158-124694-01-016 한창희</p>
+                </div>
+                <button onClick={() => copyText("IBK기업은행 158-124694-01-016")}>복사</button>
               </div>
-              <button onClick={() => copyText("국민은행 429501-56-3311")}>복사</button>
-            </div>
 
-            <div style={{ borderTop: "none" }}>
+              <div className="divider"></div>
+
               <div>
-                <h3>신랑 모) 이정선</h3>
-                <p>국민은행 703001-01-467034 이정선</p>
+                <div>
+                  <h3>신랑 부) 한상륜</h3>
+                  <p>국민은행 429501-56-3311 한상륜</p>
+                </div>
+                <button onClick={() => copyText("국민은행 429501-56-3311")}>복사</button>
               </div>
-              <button onClick={() => copyText("국민은행 703001-01-467034")}>복사</button>
-            </div>
-          </>
-        )}
-      </div>
 
-      <div className="bride" style={{ marginTop: "40px" }}>
-        <h2>
-          <div>
-            <h3 style={{ color: "#ff85a1" }}>신부측</h3>
-            <button onClick={() => setIsBrideExpend(!isBrideExpend)}>
-              <div className={isBrideExpend ? "arrow bride arrow-up" : "arrow bride arrow-down"}></div>
-            </button>
-          </div>
-        </h2>
+              <div className="divider"></div>
 
-        {isBrideExpend && (
-          <>
+              <div>
+                <div>
+                  <h3>신랑 모) 이정선</h3>
+                  <p>국민은행 703001-01-467034 이정선</p>
+                </div>
+                <button onClick={() => copyText("국민은행 703001-01-467034")}>복사</button>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Section Divider between Groom & Bride */}
+        <div className="section-divider"></div>
+
+        {/* Bride Section */}
+        <div className="bride" style={{ marginTop: "40px" }}>
+          <h2>
             <div>
-              <div>
-                <h3>신부 권지은</h3>
-                <p>국민은행 594202-04-088297 권지은</p>
-              </div>
-              <button onClick={() => copyText("국민은행 594202-04-088297")}>복사</button>
+              <h3 style={{ color: "#ff85a1" }}>신부측</h3>
+              <button onClick={() => setIsBrideExpend(!isBrideExpend)}>
+                <div className={isBrideExpend ? "arrow bride arrow-up" : "arrow bride arrow-down"}></div>
+              </button>
             </div>
+          </h2>
 
-            <div style={{ borderTop: "none" }}>
+          {isBrideExpend && (
+            <>
               <div>
-                <h3>신부 부) 권영익</h3>
-                <p>국민은행 606210-65-7696 권영익</p>
+                <div>
+                  <h3>신부 권지은</h3>
+                  <p>국민은행 594202-04-088297 권지은</p>
+                </div>
+                <button onClick={() => copyText("국민은행 594202-04-088297")}>복사</button>
               </div>
-              <button onClick={() => copyText("국민은행 606210-65-7696")}>복사</button>
-            </div>
 
-            <div style={{ borderTop: "none" }}>
+              <div className="divider"></div>
+
               <div>
-                <h3>신부 모) 김영순</h3>
-                <p>국민은행 619210-60-1898 김영순</p>
+                <div>
+                  <h3>신부 부) 권영익</h3>
+                  <p>국민은행 606210-65-7696 권영익</p>
+                </div>
+                <button onClick={() => copyText("국민은행 606210-65-7696")}>복사</button>
               </div>
-              <button onClick={() => copyText("국민은행 619210-60-1898")}>복사</button>
-            </div>
-          </>
-        )}
-      </div>
-    </section>
+
+              <div className="divider"></div>
+
+              <div>
+                <div>
+                  <h3>신부 모) 김영순</h3>
+                  <p>국민은행 619210-60-1898 김영순</p>
+                </div>
+                <button onClick={() => copyText("국민은행 619210-60-1898")}>복사</button>
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+
    
       <section className="guestbook">
         <div className="guestbook-intro">

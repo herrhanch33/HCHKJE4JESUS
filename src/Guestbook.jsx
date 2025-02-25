@@ -40,10 +40,6 @@ const Guestbook = () => {
   return (
     <section className="guestbook-container">
       <h1>방명록</h1>
-      <p className="guestbook-intro">
-        따뜻한 축하 메시지를 남겨주세요.
-      </p>
-
       {entries.length === 0 ? (
         <p style={{ textAlign: "center", color: "#777" }}>
           아직 작성된 방명록이 없습니다.
