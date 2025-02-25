@@ -276,9 +276,9 @@ function App() {
               <div>
                 <div>
                   <h3>신랑 한창희</h3>
-                  <p>IBK기업은행 158-124694-01-016 한창희</p>
+                  <p>NH농협은행 302-1895-5868-01 한창희</p>
                 </div>
-                <button onClick={() => copyText("IBK기업은행 158-124694-01-016")}>복사</button>
+                <button onClick={() => copyText("NH농협은행 302-1895-5868-01")}>복사</button>
               </div>
 
               <div>
