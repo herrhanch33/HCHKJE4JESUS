@@ -281,8 +281,6 @@ function App() {
                 <button onClick={() => copyText("IBK기업은행 158-124694-01-016")}>복사</button>
               </div>
 
-              <div className="divider"></div>
-
               <div>
                 <div>
                   <h3>신랑 부) 한상륜</h3>
@@ -290,8 +288,6 @@ function App() {
                 </div>
                 <button onClick={() => copyText("국민은행 429501-56-3311")}>복사</button>
               </div>
-
-              <div className="divider"></div>
 
               <div>
                 <div>
@@ -328,8 +324,6 @@ function App() {
                 <button onClick={() => copyText("국민은행 594202-04-088297")}>복사</button>
               </div>
 
-              <div className="divider"></div>
-
               <div>
                 <div>
                   <h3>신부 부) 권영익</h3>
@@ -337,8 +331,6 @@ function App() {
                 </div>
                 <button onClick={() => copyText("국민은행 606210-65-7696")}>복사</button>
               </div>
-
-              <div className="divider"></div>
 
               <div>
                 <div>

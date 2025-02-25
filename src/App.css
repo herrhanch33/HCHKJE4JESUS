@@ -201,7 +201,7 @@ img {
   margin: 30px auto;
   padding: 20px;
   border-radius: 10px;
-  background: #f9f9f9;
+  background: #eee;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   font-family: 'Noto Serif KR', serif;
@@ -226,26 +226,20 @@ img {
 }
 
 /* Guestbook List */
-.guestbook-list {
-  list-style-type: none;
-  padding: 0;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.guestbook-entry {
-  border: 1px solid #ddd;
+.guestbook-list, .guestbook-entry {
+  width: 100%;
   padding: 12px;
+  border: 1px solid #ddd;
   border-radius: 6px;
-  margin-bottom: 10px;
   background-color: #fff;
+  box-sizing: border-box;
 }
 
 .guestbook-header {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  color: #333;
+  color: #4169E1;
   font-weight: bold;
 }
 
@@ -262,20 +256,21 @@ img {
 
 .guestbook-form input,
 .guestbook-form textarea {
-  width: calc(100% - 24px); /* Adjust width to fit within the container */
+  width: 100%; /* Ensure all input fields stretch across full width */
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
   font-family: 'Noto Serif KR', serif;
-  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  box-sizing: border-box; /* Prevents extra width from padding */
 }
 
 /* Guestbook Button */
 .guestbook-form button {
-  padding: 10px;
-  background-color: #333;
+  margin-top: 15px;
+  padding: 12px 15px;
+  background-color: #4169E1;
   color: white;
   border: none;
   border-radius: 5px;
@@ -284,6 +279,7 @@ img {
   width: 100%;
   font-family: '42dot Sans', sans-serif;
   font-size: 16px;
+  transition: 0.3s;
 }
 
 .guestbook-form button:hover {
@@ -297,7 +293,7 @@ img {
   margin: 30px auto;
   padding: 20px;
   border-radius: 10px;
-  background: #f9f9f9;
+  background: #eee;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   font-family: 'Noto Serif KR', serif;
@@ -306,36 +302,37 @@ img {
 .rsvp-container h1 {
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: #FF85A1;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .rsvp-form input,
 .rsvp-form select {
-  width: calc(100% - 20px); /* Adjust width to fit within the container */
+  width: 100%; /* Ensure all input fields stretch across full width */
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
   font-family: 'Noto Serif KR', serif;
-  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  box-sizing: border-box; /* Prevents extra width from padding */
 }
 
 /* RSVP Button */
 .rsvp-form button {
   margin-top: 15px;
-  padding: 10px 15px;
-  background-color: #333;
+  padding: 12px 15px;
+  background-color: #FF85A1;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  margin-top: 10px;
   width: 100%;
   font-family: '42dot Sans', sans-serif;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
 .rsvp-form button:hover {
