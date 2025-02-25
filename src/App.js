@@ -251,6 +251,13 @@ function App() {
           <MapMarker position={{ lat: 36.10358685346486, lng: 129.3889226319518 }}></MapMarker>
         </Map>
       </section> */}
+
+    <section className="bank-number">
+      <h3>마음 전하실 곳</h3>
+      {/* <pre>
+        따듯한 마음에 깊이 감사드립니다.<br />
+        *화환은 수령이 어려운 점 양해 부탁드립니다.<br />
+      </pre> */}
       <div className="groom">
         <h2>
           <div>
@@ -328,6 +335,7 @@ function App() {
           </>
         )}
       </div>
+    </section>
    
       <section className="guestbook">
         <div className="guestbook-intro">
