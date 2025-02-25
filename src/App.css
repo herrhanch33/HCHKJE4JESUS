@@ -194,7 +194,7 @@ img {
   margin: 10px auto; 
 }
 
-/* Guestbook Styling */
+/* ===================== Guestbook Section ===================== */
 .guestbook-container {
   width: 90%;
   max-width: 600px;
@@ -215,16 +215,18 @@ img {
   margin-bottom: 20px;
 }
 
-/* Add extra space before the message "Thanks to Jupyeong" */
+/* Guestbook Intro */
 .guestbook-intro {
   text-align: center;
-  margin-bottom: 10px; /* Adds space between text and image */
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 16px;
   line-height: 1.0;
   font-family: 'Dongle', sans-serif;
-  padding-top: 20px; /* Add extra space before the message */
+  padding-top: 20px;
+  color: #fff;
 }
 
+/* Guestbook List */
 .guestbook-list {
   list-style-type: none;
   padding: 0;
@@ -270,6 +272,7 @@ img {
   font-family: 'Noto Serif KR', serif;
 }
 
+/* Guestbook Button */
 .guestbook-form button {
   padding: 10px;
   background-color: #333;
@@ -287,7 +290,7 @@ img {
   background-color: #555;
 }
 
-/* RSVP Styling */
+/* ===================== RSVP Section ===================== */
 .rsvp-container {
   width: 90%;
   max-width: 600px;
@@ -318,6 +321,7 @@ img {
   font-family: 'Noto Serif KR', serif;
 }
 
+/* RSVP Button */
 .rsvp-form button {
   margin-top: 15px;
   padding: 10px 15px;

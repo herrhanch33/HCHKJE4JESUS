@@ -28,7 +28,7 @@ const Guestbook = () => {
     const newEntry = {
       name,
       message,
-      timestamp: new Date().toISOString(), // Save as ISO format
+      timestamp: new Date().toLocaleString(),
     };
 
     await addDoc(collection(db, "guestbook"), newEntry);
@@ -38,25 +38,30 @@ const Guestbook = () => {
   };
 
   return (
-    <div className="guestbook-container">
-      <h1>📖 방명록</h1>      
+    <section className="guestbook-container">
+      <h1>방명록</h1>
+      <p className="guestbook-intro">
+        따뜻한 축하 메시지를 남겨주세요.
+      </p>
+
       {entries.length === 0 ? (
-        <p style={{ textAlign: "center" }}>아직 작성된 방명록이 없습니다.</p>
+        <p style={{ textAlign: "center", color: "#777" }}>
+          아직 작성된 방명록이 없습니다.
+        </p>
       ) : (
         <ul className="guestbook-list">
           {entries.map((entry) => (
             <li key={entry.id} className="guestbook-entry">
               <div className="guestbook-header">
                 <strong>{entry.name}</strong>
-                <span className="timestamp">
-                  {new Date(entry.timestamp).toLocaleString("ko-KR")}
-                </span>
+                <span className="timestamp">{entry.timestamp}</span>
               </div>
               <p className="guestbook-message">{entry.message}</p>
             </li>
           ))}
         </ul>
       )}
+
       <div className="guestbook-form">
         <input
           type="text"
@@ -69,9 +74,9 @@ const Guestbook = () => {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="메시지"
         />
-        <button onClick={handleAddEntry}>추가하기</button>
+        <button onClick={handleAddEntry}>등록</button>
       </div>
-    </div>
+    </section>
   );
 };
 

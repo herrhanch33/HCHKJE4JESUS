@@ -214,23 +214,26 @@ function App() {
             한동대학교 김영길그레이스스쿨 <span onClick={() => copyText('경북 포항시 북구 흥해읍 한동로 558 한동대학교 김영길그레이스스쿨')}>복사</span>
           </p>
 
-          <h3 className="left" style={{ marginTop: '30px' }}>🚄 KTX</h3>
-          <p className="left">포항 KTX역 → <strong>택시</strong> (한동대학교 김영길 GRACE 스쿨)</p>
-          <p className="left">포항 KTX역 → <strong>120번 버스</strong> → 우창동행정복지센터 하차 → <strong>302번 버스</strong> 환승 → 한동대학교</p>
-
-          <h3 className="left" style={{ marginTop: '30px' }}>🚌 버스</h3>
-          <p className="left">한동대학교 정류장 하차</p>
+          <h3 className="left" style={{ marginTop: '30px' }}>KTX 이용</h3>
           <ul className="left">
-            <li>일반버스: <strong>302번</strong></li>
-            <li>마을버스: <strong>한동대학교 방면</strong></li>
+            <li>포항 KTX역 → <strong>택시 이용</strong> (한동대학교 김영길 GRACE 스쿨)</li>
+            <li>포항 KTX역 → <strong>120번 버스</strong> → 우창동행정복지센터 하차 → <strong>302번 버스</strong> 환승 → 한동대학교</li>
           </ul>
 
-          <h3 className="left" style={{ marginTop: '30px' }}>🚶 캠퍼스 이동</h3>
-          <p className="left">한동대학교 정문에서 <strong>도보 5~10분</strong> (표지판 참고)</p>
+          <h3 className="left" style={{ marginTop: '30px' }}>버스 이용</h3>
+          <p className="left">
+            한동대학교 정류장 하차<br />
+            일반버스: <strong>302번</strong><br />
+            마을버스: <strong>한동대학교 방면</strong>
+          </p>
 
-          <h3 className="left" style={{ marginTop: '30px' }}>🅿 주차</h3>
+          <h3 className="left" style={{ marginTop: '30px' }}>한동대학교 → 김영길 GRACE 스쿨</h3>
+          <p className="left">한동대학교 정문에서 <strong>도보 5~10분</strong> (캠퍼스 내 표지판 참고)</p>
+
+          <h3 className="left" style={{ marginTop: '30px' }}>주차 안내</h3>
           <p className="left">한동대학교 및 김영길 GRACE 스쿨 주차장 이용 가능</p>
-        </div>
+      </div>
+
 
         
       </section>
@@ -248,49 +251,93 @@ function App() {
           <MapMarker position={{ lat: 36.10358685346486, lng: 129.3889226319518 }}></MapMarker>
         </Map>
       </section> */}
+      <div className="groom">
+        <h2>
+          <div>
+            <h3>신랑측</h3>
+            <button onClick={() => setIsGroomExpend(!isGroomExpend)}>
+              <div className={isGroomExpend ? 'arrow arrow-up' : 'arrow arrow-down'}></div>
+            </button>
+          </div>
+        </h2>
 
-      <section className="bank-number">
-        <h3>마음 전하실 곳</h3>
-        {/* <pre>
-          따듯한 마음에 깊이 감사드립니다.<br />
-          *화환은 수령이 어려운 점 양해 부탁드립니다.<br />
-        </pre> */}
+        {isGroomExpend && (
+          <>
+            <div>
+              <div>
+                <h3>신랑 한창희</h3>
+                <p>IBK기업은행 158-124694-01-016 한창희</p>
+              </div>
+              <button onClick={() => copyText("IBK기업은행 158-124694-01-016")}>복사</button>
+            </div>
 
-        <div className="groom">
-          <h3>신랑측</h3>
-          <p><strong>신랑 한창희</strong> | IBK기업은행 158-124694-01-016</p>
-          <button onClick={() => copyText("IBK기업은행 158-124694-01-016")}>복사</button>
+            <div style={{ borderTop: "none" }}>
+              <div>
+                <h3>신랑 부) 한상륜</h3>
+                <p>국민은행 429501-56-3311 한상륜</p>
+              </div>
+              <button onClick={() => copyText("국민은행 429501-56-3311")}>복사</button>
+            </div>
 
-          <p><strong>신랑 부) 한상륜</strong> | 국민은행 429501-56-3311</p>
-          <button onClick={() => copyText("국민은행 429501-56-3311")}>복사</button>
+            <div style={{ borderTop: "none" }}>
+              <div>
+                <h3>신랑 모) 이정선</h3>
+                <p>국민은행 703001-01-467034 이정선</p>
+              </div>
+              <button onClick={() => copyText("국민은행 703001-01-467034")}>복사</button>
+            </div>
+          </>
+        )}
+      </div>
 
-          <p><strong>신랑 모) 이정선</strong> | 국민은행 703001-01-467034</p>
-          <button onClick={() => copyText("국민은행 703001-01-467034")}>복사</button>
-        </div>
+      <div className="bride" style={{ marginTop: "40px" }}>
+        <h2>
+          <div>
+            <h3 style={{ color: "#ff85a1" }}>신부측</h3>
+            <button onClick={() => setIsBrideExpend(!isBrideExpend)}>
+              <div className={isBrideExpend ? "arrow bride arrow-up" : "arrow bride arrow-down"}></div>
+            </button>
+          </div>
+        </h2>
 
-        <div className="bride" style={{ marginTop: '30px' }}>
-          <h3 style={{ color: '#ff85a1' }}>신부측</h3>
-          <p><strong>신부 권지은</strong> | 국민은행 594202-04-088297</p>
-          <button onClick={() => copyText("국민은행 594202-04-088297")}>복사</button>
+        {isBrideExpend && (
+          <>
+            <div>
+              <div>
+                <h3>신부 권지은</h3>
+                <p>국민은행 594202-04-088297 권지은</p>
+              </div>
+              <button onClick={() => copyText("국민은행 594202-04-088297")}>복사</button>
+            </div>
 
-          <p><strong>신부 부) 권영익</strong> | 국민은행 606210-65-7696</p>
-          <button onClick={() => copyText("국민은행 606210-65-7696")}>복사</button>
+            <div style={{ borderTop: "none" }}>
+              <div>
+                <h3>신부 부) 권영익</h3>
+                <p>국민은행 606210-65-7696 권영익</p>
+              </div>
+              <button onClick={() => copyText("국민은행 606210-65-7696")}>복사</button>
+            </div>
 
-          <p><strong>신부 모) 김영순</strong> | 국민은행 619210-60-1898</p>
-          <button onClick={() => copyText("국민은행 619210-60-1898")}>복사</button>
-        </div>
-      </section>
-
+            <div style={{ borderTop: "none" }}>
+              <div>
+                <h3>신부 모) 김영순</h3>
+                <p>국민은행 619210-60-1898 김영순</p>
+              </div>
+              <button onClick={() => copyText("국민은행 619210-60-1898")}>복사</button>
+            </div>
+          </>
+        )}
+      </div>
+   
       <section className="guestbook">
         <div className="guestbook-intro">
             <br></br>Thanks to Jupyeong<br />
         </div>
         <img src="slide-images/13.jpg" alt="" />
-        <Guestbook />
-      </section>
-
-      <section className="rsvp">
+        <section className="rsvp">
         <RSVP /> {/* RSVP */}
+      </section>
+        <Guestbook />
       </section>
     <BackgroundMusic /> {/* BGM */}
     </div>

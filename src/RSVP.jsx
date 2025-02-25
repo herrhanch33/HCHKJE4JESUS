@@ -6,7 +6,7 @@ const RSVP = () => {
   const [rsvpList, setRsvpList] = useState([]);
   const [rsvpName, setRsvpName] = useState("");
   const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
+  const [attendance, setAttendance] = useState("");
 
   useEffect(() => {
     const fetchRSVPs = async () => {
@@ -21,27 +21,30 @@ const RSVP = () => {
   }, []);
 
   const handleRSVP = async () => {
-    if (!rsvpName || !phone || !location) {
-      alert("모든 정보를 입력해주세요.");
+    if (!rsvpName || !phone || !attendance) {
+      alert("이름, 전화번호, 참석 여부를 입력해주세요.");
       return;
     }
 
     await addDoc(collection(db, "rsvp"), {
       rsvpName,
       phone,
-      location,
+      attendance,
       timestamp: new Date().toLocaleString(),
     });
 
-    alert("RSVP가 제출되었습니다!");
+    alert("참석 여부가 제출되었습니다!");
     setRsvpName("");
     setPhone("");
-    setLocation("");
+    setAttendance("");
   };
 
   return (
-    <div className="rsvp-container">
-      <h1>🎟️참석여부</h1>
+    <section className="rsvp-container">
+      <h1>참석여부</h1>
+      <p className="rsvp-intro">
+        소중한 시간을 함께해 주실 수 있는지 알려주세요.
+      </p>
       <div className="rsvp-form">
         <input
           type="text"
@@ -55,15 +58,17 @@ const RSVP = () => {
           onChange={(e) => setPhone(e.target.value)}
           placeholder="전화번호"
         />
-        <input
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          placeholder="출발 지역"
-        />
-        <button onClick={handleRSVP}>참석 등록</button>
+        <select
+          value={attendance}
+          onChange={(e) => setAttendance(e.target.value)}
+        >
+          <option value="">참석 여부 선택</option>
+          <option value="참석">참석</option>
+          <option value="불참">불참</option>
+        </select>
+        <button onClick={handleRSVP}>제출</button>
       </div>
-    </div>
+    </section>
   );
 };
 
