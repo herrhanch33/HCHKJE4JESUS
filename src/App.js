@@ -39,7 +39,7 @@ function App() {
             <span>한동대학교 김영길 GRACE 스쿨</span>
           </p>
         </div>
-        <h3>한창희 ✝ ✟ ⸸ ♰ 💕✝ ❤️⛪권지은 결혼 예배</h3>
+        <h3>한창희 ✝ ✟ ✝ 권지은 결혼 예배</h3>
         <section className="bible-verses">
           "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라." (요일4:19)<br />
           "We love because he first loved us." (1John 4:19)<br />

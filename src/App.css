@@ -21,7 +21,7 @@ button {background: transparent; border:none; cursor: pointer;}
 
 .intro { text-align: center}
 .intro > .place { padding: 20px; background-color: #D3D3D3; display: flex; justify-content: center; margin-bottom: 60px;}
-.intro > .place > p {text-align: center; line-height: 25px; font-weight: 700; font-size: 16px; letter-spacing: 1px;}
+.intro > .place > p {text-align: center; line-height: 25px; font-weight: 800; font-size: 16px; letter-spacing: 1px;}
 .intro > .place > p > span {font-weight: 400;}
 .intro > h3 {font-size: 24px; text-align: center; color: #FF85A1; font-weight: 600;}
 .intro > p {margin-top: 20px;font-size: 16px; line-height: 30px; text-align: center}
@@ -196,7 +196,7 @@ img {
 .guestbook-intro {
   text-align: center;
   margin-bottom: 10px; /* Adds space between text and image */
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.0;
   font-family: 'Dongle', sans-serif;
   padding-top: 20px; /* Adds space above text */
