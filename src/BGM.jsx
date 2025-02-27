@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const BackgroundMusic = () => {
   const audioRef = useRef(null);
-  let lastScrollY = 0;
+  const triggerRef = useRef(null);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -12,37 +12,38 @@ const BackgroundMusic = () => {
         audio.muted = false;
         audio.play()
           .then(() => {
-            console.log("🎵 BGM Playing via Scroll");
+            console.log("🎵 BGM Playing via Position Change");
             cleanupListeners();
           })
           .catch(err => console.log("Autoplay prevented:", err));
       }
     };
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (Math.abs(currentScrollY - lastScrollY) > 10) { // Detect small scroll movements
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
         enableAudio();
       }
-      lastScrollY = currentScrollY;
-    };
+    }, { threshold: 0.1 });
 
-    // Attach event listeners for scroll-based auto-play
-    document.addEventListener("scroll", handleScroll, { passive: false });
+    if (triggerRef.current) {
+      observer.observe(triggerRef.current);
+    }
 
-    // Clean up event listeners once audio starts playing
     const cleanupListeners = () => {
-      document.removeEventListener("scroll", handleScroll);
+      if (triggerRef.current) observer.unobserve(triggerRef.current);
     };
 
     return cleanupListeners;
   }, []);
 
   return (
-    <audio ref={audioRef} loop playsInline>
-      <source src="bgm.mp3" type="audio/mp3" />
-      브라우저가 오디오를 지원하지 않습니다.
-    </audio>
+    <>
+      <div ref={triggerRef} style={{ position: "absolute", top: "200px", width: "1px", height: "1px" }}></div>
+      <audio ref={audioRef} loop playsInline>
+        <source src="bgm.mp3" type="audio/mp3" />
+        브라우저가 오디오를 지원하지 않습니다.
+      </audio>
+    </>
   );
 };
 
