@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const BackgroundMusic = () => {
   const audioRef = useRef(null);
+  let lastScrollY = 0;
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -9,23 +10,29 @@ const BackgroundMusic = () => {
     const enableAudio = () => {
       if (audio && audio.paused) {
         audio.muted = false;
-        audio
-          .play()
+        audio.play()
           .then(() => {
-            console.log("🎵 BGM Playing");
+            console.log("🎵 BGM Playing via Scroll");
             cleanupListeners();
           })
           .catch(err => console.log("Autoplay prevented:", err));
       }
     };
 
-    // Attach multiple event listeners for auto-play
-    const events = ["pointerdown", "scroll", "keydown"];
-    events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (Math.abs(currentScrollY - lastScrollY) > 10) { // Detect small scroll movements
+        enableAudio();
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    // Attach event listeners for scroll-based auto-play
+    document.addEventListener("scroll", handleScroll, { passive: false });
 
     // Clean up event listeners once audio starts playing
     const cleanupListeners = () => {
-      events.forEach(event => document.removeEventListener(event, enableAudio));
+      document.removeEventListener("scroll", handleScroll);
     };
 
     return cleanupListeners;
