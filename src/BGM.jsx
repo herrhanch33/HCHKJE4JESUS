@@ -8,20 +8,31 @@ const BackgroundMusic = () => {
 
     const enableAudio = () => {
       if (audio && audio.paused) {
-        audio.muted = false; // Ensure it's unmuted before playing
+        audio.muted = false;
         audio.play()
           .then(() => console.log("🎵 BGM Playing"))
           .catch(err => console.log("Autoplay prevented:", err));
       }
     };
 
-    // Play music when user clicks or touches the screen
+    // Listen for user interaction events (click, touch, scroll)
     document.addEventListener("click", enableAudio, { once: true });
     document.addEventListener("touchstart", enableAudio, { once: true });
+    
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) { // Detect only downward scroll
+        enableAudio();
+        document.removeEventListener("scroll", handleScroll); // Remove event after playing
+      }
+      lastScrollY = window.scrollY;
+    };
+    document.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("click", enableAudio);
       document.removeEventListener("touchstart", enableAudio);
+      document.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
