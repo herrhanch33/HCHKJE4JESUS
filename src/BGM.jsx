@@ -2,36 +2,31 @@ import React, { useEffect, useRef } from "react";
 
 const BackgroundMusic = () => {
   const audioRef = useRef(null);
-  const hasPlayedRef = useRef(false); // Ensure it plays only once
 
   useEffect(() => {
     const audio = audioRef.current;
 
     const enableAudio = () => {
-      if (!hasPlayedRef.current && audio && audio.paused) {
+      if (audio && audio.paused) {
         audio.muted = false;
         audio.play()
-          .then(() => {
-            console.log("🎵 BGM Playing");
-            hasPlayedRef.current = true; // Prevent further triggers
-          })
+          .then(() => console.log("🎵 BGM Playing"))
           .catch(err => console.log("Autoplay prevented:", err));
       }
     };
 
-    // Allow play on user interactions
+    // Listen for user interaction events (click, touch, scroll)
     document.addEventListener("click", enableAudio, { once: true });
     document.addEventListener("touchstart", enableAudio, { once: true });
-
+    
     let lastScrollY = window.scrollY;
     const handleScroll = () => {
-      if (!hasPlayedRef.current && Math.abs(window.scrollY - lastScrollY) > 1) { // Only 1px needed
+      if (window.scrollY > lastScrollY) { // Detect only downward scroll
         enableAudio();
-        document.removeEventListener("scroll", handleScroll);
+        document.removeEventListener("scroll", handleScroll); // Remove event after playing
       }
       lastScrollY = window.scrollY;
     };
-
     document.addEventListener("scroll", handleScroll);
 
     return () => {
