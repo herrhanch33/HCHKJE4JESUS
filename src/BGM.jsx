@@ -9,31 +9,26 @@ const BackgroundMusic = () => {
     const enableAudio = () => {
       if (audio && audio.paused) {
         audio.muted = false;
-        audio.play()
-          .then(() => console.log("🎵 BGM Playing"))
+        audio
+          .play()
+          .then(() => {
+            console.log("🎵 BGM Playing");
+            cleanupListeners();
+          })
           .catch(err => console.log("Autoplay prevented:", err));
       }
     };
 
-    // Listen for user interaction events (click, touch, scroll)
-    document.addEventListener("click", enableAudio, { once: true });
-    document.addEventListener("touchstart", enableAudio, { once: true });
-    
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) { // Detect only downward scroll
-        enableAudio();
-        document.removeEventListener("scroll", handleScroll); // Remove event after playing
-      }
-      lastScrollY = window.scrollY;
-    };
-    document.addEventListener("scroll", handleScroll);
+    // Attach multiple event listeners for auto-play
+    const events = ["pointerdown", "scroll", "keydown"];
+    events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
 
-    return () => {
-      document.removeEventListener("click", enableAudio);
-      document.removeEventListener("touchstart", enableAudio);
-      document.removeEventListener("scroll", handleScroll);
+    // Clean up event listeners once audio starts playing
+    const cleanupListeners = () => {
+      events.forEach(event => document.removeEventListener(event, enableAudio));
     };
+
+    return cleanupListeners;
   }, []);
 
   return (
