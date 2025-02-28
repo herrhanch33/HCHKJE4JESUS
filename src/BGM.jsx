@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 
 const BackgroundMusic = () => {
   const audioRef = useRef(null);
-  const triggerRef = useRef(null);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -12,38 +11,36 @@ const BackgroundMusic = () => {
         audio.muted = false;
         audio.play()
           .then(() => {
-            console.log("🎵 BGM Playing via Position Change");
+            console.log("🎵 BGM Playing");
             cleanupListeners();
           })
-          .catch(err => console.log("Autoplay prevented:", err));
+          .catch(err => console.log("Autoplay blocked:", err));
       }
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
+    const handleScroll = () => {
+      if (window.scrollY > 5) { // Detect small movements
         enableAudio();
       }
-    }, { threshold: 0.1 });
+    };
 
-    if (triggerRef.current) {
-      observer.observe(triggerRef.current);
-    }
+    // Attach multiple event listeners for user interaction
+    document.addEventListener("pointerdown", enableAudio, { once: true });
+    document.addEventListener("scroll", handleScroll, { passive: true });
 
     const cleanupListeners = () => {
-      if (triggerRef.current) observer.unobserve(triggerRef.current);
+      document.removeEventListener("pointerdown", enableAudio);
+      document.removeEventListener("scroll", handleScroll);
     };
 
     return cleanupListeners;
   }, []);
 
   return (
-    <>
-      <div ref={triggerRef} style={{ position: "absolute", top: "200px", width: "1px", height: "1px" }}></div>
-      <audio ref={audioRef} loop playsInline>
-        <source src="bgm.mp3" type="audio/mp3" />
-        브라우저가 오디오를 지원하지 않습니다.
-      </audio>
-    </>
+    <audio ref={audioRef} loop playsInline>
+      <source src="bgm.mp3" type="audio/mp3" />
+      브라우저가 오디오를 지원하지 않습니다.
+    </audio>
   );
 };
 
