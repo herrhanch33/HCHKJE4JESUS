@@ -19,14 +19,12 @@ const BackgroundMusic = () => {
       }
     };
 
-    const handleScroll = () => {
-      if (window.scrollY > 1) { // Detect even small scrolling
-        enableAudio();
-      }
+    const handleTouchMove = () => {
+      enableAudio();
     };
 
-    // Add event listeners for multiple interaction types
-    const events = ["pointerdown", "click", "touchstart", "keydown", "scroll"];
+    // Add event listeners for ALL user interactions
+    const events = ["pointerdown", "click", "touchstart", "touchmove", "scroll"];
     events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
 
     const cleanupListeners = () => {
