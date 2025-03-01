@@ -5,13 +5,14 @@ const BackgroundMusic = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
+    if (!audio) return;
 
     const enableAudio = () => {
-      if (audio && audio.paused) {
+      if (audio.paused) {
         audio.muted = false;
         audio.play()
           .then(() => {
-            console.log("🎵 BGM Playing");
+            console.log("🎵 BGM Playing!");
             cleanupListeners();
           })
           .catch(err => console.log("Autoplay blocked:", err));
@@ -19,18 +20,17 @@ const BackgroundMusic = () => {
     };
 
     const handleScroll = () => {
-      if (window.scrollY > 5) { // Detect small movements
+      if (window.scrollY > 1) { // Detect even small scrolling
         enableAudio();
       }
     };
 
-    // Attach multiple event listeners for user interaction
-    document.addEventListener("pointerdown", enableAudio, { once: true });
-    document.addEventListener("scroll", handleScroll, { passive: true });
+    // Add event listeners for multiple interaction types
+    const events = ["pointerdown", "click", "touchstart", "keydown", "scroll"];
+    events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
 
     const cleanupListeners = () => {
-      document.removeEventListener("pointerdown", enableAudio);
-      document.removeEventListener("scroll", handleScroll);
+      events.forEach(event => document.removeEventListener(event, enableAudio));
     };
 
     return cleanupListeners;
