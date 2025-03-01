@@ -19,21 +19,43 @@ const BackgroundMusic = () => {
       }
     };
 
-    // 🔥 1. Try autoplay immediately (PC + iOS should work)
-    setTimeout(enableAudio, 500);  // Tiny delay to handle background loading issues
+    const handleScrollOrTouch = () => {
+      enableAudio();
+    };
 
-    // 🎯 2. Listen for ANY user interaction (Android Chrome fix)
-    const events = ["pointerdown", "click", "touchstart", "touchmove", "scroll", "keydown"];
+    // 🔥 Try autoplay immediately for iOS and PC users
+    setTimeout(enableAudio, 500);
+
+    // 🎯 Listen for all valid user interactions
+    const events = [
+      "pointerdown", // Tap/click
+      "click", // Click
+      "touchstart", // Touch the screen
+      "touchmove", // Dragging/scrolling with touch
+      "wheel", // Scroll using fingers or mouse
+      "keydown", // Any keyboard input
+    ];
     events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
 
-    // 🔄 3. Detect when tab becomes visible (Chrome sometimes blocks autoplay when tab is in background)
+    // 🎯 Listen for page visibility change (fixes tab switching issue)
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) enableAudio();
     });
 
+    // 🎯 Listen for scroll movements but check for slight position changes
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (Math.abs(window.scrollY - lastScrollY) > 5) { // Small movement detected
+        enableAudio();
+        lastScrollY = window.scrollY;
+      }
+    };
+    document.addEventListener("scroll", handleScroll, { passive: true });
+
     // 🛠 Cleanup listeners after BGM starts
     const cleanupListeners = () => {
       events.forEach(event => document.removeEventListener(event, enableAudio));
+      document.removeEventListener("scroll", handleScroll);
       document.removeEventListener("visibilitychange", enableAudio);
     };
 
