@@ -15,20 +15,26 @@ const BackgroundMusic = () => {
             console.log("🎵 BGM Playing!");
             cleanupListeners();
           })
-          .catch(err => console.log("Autoplay blocked:", err));
+          .catch(err => console.log("🔴 Autoplay blocked:", err));
       }
     };
 
-    const handleTouchMove = () => {
-      enableAudio();
-    };
+    // 🔥 1. Try autoplay immediately (PC + iOS should work)
+    setTimeout(enableAudio, 500);  // Tiny delay to handle background loading issues
 
-    // Add event listeners for ALL user interactions
-    const events = ["pointerdown", "click", "touchstart", "touchmove", "scroll"];
+    // 🎯 2. Listen for ANY user interaction (Android Chrome fix)
+    const events = ["pointerdown", "click", "touchstart", "touchmove", "scroll", "keydown"];
     events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
 
+    // 🔄 3. Detect when tab becomes visible (Chrome sometimes blocks autoplay when tab is in background)
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) enableAudio();
+    });
+
+    // 🛠 Cleanup listeners after BGM starts
     const cleanupListeners = () => {
       events.forEach(event => document.removeEventListener(event, enableAudio));
+      document.removeEventListener("visibilitychange", enableAudio);
     };
 
     return cleanupListeners;
