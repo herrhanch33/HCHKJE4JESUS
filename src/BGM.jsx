@@ -9,6 +9,22 @@ const BackgroundMusic = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    // ✅ 1. Try to autoplay immediately (for Safari, iOS, Kakao Browser, etc.)
+    const tryAutoplay = () => {
+      audio.muted = false;
+      audio.play()
+        .then(() => {
+          console.log("🎵 BGM Playing on Page Load!");
+          cleanupListeners(); // Remove event listeners if autoplay works
+        })
+        .catch(err => {
+          console.log("🔴 Autoplay blocked, waiting for user interaction:", err);
+        });
+    };
+
+    tryAutoplay(); // 🔥 Attempt autoplay when page loads
+
+    // ✅ 2. Detect any user interaction (for Android Chrome & others that block autoplay)
     const enableAudio = () => {
       if (audio.paused) {
         audio.muted = false;
@@ -21,7 +37,7 @@ const BackgroundMusic = () => {
       }
     };
 
-    // ✅ Detect **lightest scroll** (even 1px)
+    // ✅ 3. Detect **lightest scroll** (even 1px)
     const handleScroll = () => {
       if (Math.abs(window.scrollY - lastScrollY) > 1) {
         enableAudio();
@@ -29,7 +45,7 @@ const BackgroundMusic = () => {
       lastScrollY = window.scrollY;
     };
 
-    // ✅ Detect **lightest touch & drag**
+    // ✅ 4. Detect **lightest touch & drag**
     const handleTouchMove = (event) => {
       if (lastTouchY === null) {
         lastTouchY = event.touches[0].clientY;
@@ -41,15 +57,12 @@ const BackgroundMusic = () => {
       lastTouchY = event.touches[0].clientY;
     };
 
-    // ✅ Detect **lightest tap**
+    // ✅ 5. Detect **lightest tap**
     const handleTouchStart = () => {
       enableAudio();
     };
 
-    // ✅ Try autoplay on page load (for iOS/PC)
-    setTimeout(enableAudio, 500);
-
-    // ✅ Add event listeners for **ALL interactions**
+    // ✅ 6. Add event listeners for **ALL interactions**
     const events = [
       "pointerdown", // Light tap
       "click", // Click
@@ -60,12 +73,12 @@ const BackgroundMusic = () => {
     ];
     events.forEach(event => document.addEventListener(event, enableAudio, { passive: true }));
 
-    // ✅ Detect page visibility (fix for switching tabs)
+    // ✅ 7. Detect page visibility (fix for switching tabs)
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) enableAudio();
     });
 
-    // ✅ Detect **light scrolling & light touches**
+    // ✅ 8. Detect **light scrolling & light touches**
     document.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("touchmove", handleTouchMove, { passive: true });
     document.addEventListener("touchstart", handleTouchStart, { passive: true });
